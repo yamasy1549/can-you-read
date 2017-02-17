@@ -17,8 +17,6 @@ const store = createStore(
 
 store.dispatch(fetchQuizzes())
 
-console.log(store.getState())
-
 render(
   <Provider store={store}>
     <App />

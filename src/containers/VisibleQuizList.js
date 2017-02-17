@@ -2,7 +2,10 @@ import { connect } from 'react-redux'
 import QuizList    from '../components/QuizList'
 
 const mapStateToProps = (state) => {
-  return { quizzes: state.quizzes }
+  return {
+    quizzes:     state.quizzes,
+    currentQuiz: state.currentQuiz
+  }
 }
 
 const VisibleQuizList = connect(

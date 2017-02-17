@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const Quiz = ({ kanji, kana, prefecture, level, hint, description }) => (
-  <li>
+  <div>
     <ruby>
       {kanji}
       <rt>{kana}</rt>
@@ -9,7 +9,7 @@ const Quiz = ({ kanji, kana, prefecture, level, hint, description }) => (
     ({prefecture})
     <br/>
     Lv. {level} / {hint}文字目は「{kana[hint-1]}」 / {description}
-  </li>
+  </div>
 )
 
 Quiz.propTypes = {
