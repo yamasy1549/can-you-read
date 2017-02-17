@@ -1,3 +1,5 @@
+let currentQuiz = 0
+
 import axios from 'axios'
 
 export const startFetchQuizzes = () => {
@@ -34,5 +36,19 @@ export const fetchQuizzes = () => {
       .catch((error) => {
         dispatch(failureFetchQuizzes(error))
       })
+  }
+}
+
+export const gotoNextQuiz = () => {
+  return {
+    type: 'GOTO_NEXT_QUIZ',
+    currentQuiz: ++currentQuiz
+  }
+}
+
+export const gotoPrevQuiz = () => {
+  return {
+    type: 'GOTO_PREV_QUIZ',
+    currentQuiz: --currentQuiz
   }
 }
