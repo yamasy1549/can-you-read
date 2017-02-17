@@ -52,3 +52,17 @@ export const gotoPrevQuiz = () => {
     currentQuiz: --currentQuiz
   }
 }
+
+export const openHint = () => {
+  return {
+    type: 'OPEN_HINT',
+    openHint: true
+  }
+}
+
+export const closeHint = () => {
+  return {
+    type: 'CLOSE_HINT',
+    openHint: false
+  }
+}
