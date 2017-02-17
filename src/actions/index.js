@@ -66,3 +66,17 @@ export const closeHint = () => {
     openHint: false
   }
 }
+
+export const openAnswer = () => {
+  return {
+    type: 'OPEN_ANSWER',
+    openAnswer: true
+  }
+}
+
+export const closeAnswer = () => {
+  return {
+    type: 'CLOSE_ANSWER',
+    openAnswer: false
+  }
+}
