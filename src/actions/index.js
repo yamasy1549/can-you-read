@@ -53,30 +53,16 @@ export const gotoPrevQuiz = () => {
   }
 }
 
-export const openHint = () => {
+export const toggleHint = (openHint) => {
   return {
-    type: 'OPEN_HINT',
-    openHint: true
+    type: 'TOGGLE_HINT',
+    openHint
   }
 }
 
-export const closeHint = () => {
+export const toggleAnswer = (openAnswer) => {
   return {
-    type: 'CLOSE_HINT',
-    openHint: false
-  }
-}
-
-export const openAnswer = () => {
-  return {
-    type: 'OPEN_ANSWER',
-    openAnswer: true
-  }
-}
-
-export const closeAnswer = () => {
-  return {
-    type: 'CLOSE_ANSWER',
-    openAnswer: false
+    type: 'TOGGLE_ANSWER',
+    openAnswer
   }
 }
