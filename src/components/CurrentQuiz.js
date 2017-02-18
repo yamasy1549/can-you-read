@@ -13,7 +13,7 @@ const CurrentQuiz = ({ currentQuiz, dispatch }) => (
     }}>
       -
     </button>
-    {currentQuiz}
+    {currentQuiz+1}問目
   </div>
 )
 

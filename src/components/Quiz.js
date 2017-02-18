@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Quiz = ({ kanji, kana, prefecture, level, hint, description, openHint, onClick }) => (
+const Quiz = ({ kanji, kana, prefecture, level }) => (
   <div>
     <ruby>
       {kanji}
@@ -8,17 +8,7 @@ const Quiz = ({ kanji, kana, prefecture, level, hint, description, openHint, onC
     </ruby>
     ({prefecture})
     <br />
-    Lv. {level} / {description}
-    <button onClick={onClick}>
-      Hint
-    </button>
-    {(() => {
-      if(openHint) {
-        return (
-          <p>{hint}文字目は「{kana[hint-1]}」</p>
-        )
-      }
-    })()}
+    Lv. {level}
   </div>
 )
 

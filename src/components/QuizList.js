@@ -1,17 +1,29 @@
 import React, { PropTypes } from 'react'
 import Quiz                 from './Quiz'
+import Hint                 from './Hint'
+import Answer               from './Answer'
 
-const QuizList = ({ quizzes, currentQuiz, openHint, onHintClick }) => (
+const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onAnswerClick }) => (
   <main>
     {(() => {
       if(quizzes.length) {
         return (
-          <Quiz
-            key={quizzes[currentQuiz].id}
-            openHint={openHint}
-            {...quizzes[currentQuiz]}
-            onClick={() => onHintClick(openHint)}
-          />
+          <section>
+            <Quiz
+              key={quizzes[currentQuiz].id}
+              {...quizzes[currentQuiz]}
+            />
+            <Hint
+              openHint={openHint}
+              {...quizzes[currentQuiz]}
+              onClick={() => onHintClick(openHint)}
+            />
+            <Answer
+              openAnswer={openAnswer}
+              {...quizzes[currentQuiz]}
+              onClick={() => onAnswerClick(openAnswer)}
+            />
+          </section>
         )
       }
     })()}
