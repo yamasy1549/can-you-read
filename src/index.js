@@ -7,7 +7,7 @@ import { Provider }                      from 'react-redux'
 import { applyMiddleware, createStore }  from 'redux'
 import App                               from './components/App'
 import quizzes                           from './reducers'
-import { fetchQuizzes, gotoNextQuiz }    from './actions'
+import { fetchQuizzes }                  from './actions'
 
 const logger = createLogger()
 const store = createStore(
