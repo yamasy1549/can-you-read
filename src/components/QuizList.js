@@ -11,6 +11,7 @@ const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onA
           <section>
             <Quiz
               key={quizzes[currentQuiz].id}
+              currentQuiz={currentQuiz}
               {...quizzes[currentQuiz]}
             />
             <Hint

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const Answer = ({ description, openAnswer, onClick }) => (
+const Answer = ({ kana, description, openAnswer, onClick }) => (
   <div>
     <button onClick={onClick}>
       Answer
@@ -8,7 +8,11 @@ const Answer = ({ description, openAnswer, onClick }) => (
     {(() => {
       if(openAnswer) {
         return (
-          <p>解説: {description}</p>
+          <p>
+            {kana}
+            <br />
+            解説: {description}
+          </p>
         )
       }
     })()}
@@ -16,6 +20,7 @@ const Answer = ({ description, openAnswer, onClick }) => (
 )
 
 Answer.propTypes = {
+  kana: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   openAnswer: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired
