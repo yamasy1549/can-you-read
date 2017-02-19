@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import { toJapanese }       from 'jp-num'
+import { levelToJapanese }  from '../functions'
 
 const Quiz = ({ kanji, kana, prefecture, level, currentQuiz }) => (
   <section>
     <p>
       第{toJapanese(String(currentQuiz))}問
-      Lv. {level}
+      [{levelToJapanese(level)}]
     </p>
     <span>{kanji}({prefecture})</span>
   </section>
@@ -16,8 +17,6 @@ Quiz.propTypes = {
   kana: PropTypes.string.isRequired,
   prefecture: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
-  hint: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
   currentQuiz: PropTypes.number.isRequired
 }
 
