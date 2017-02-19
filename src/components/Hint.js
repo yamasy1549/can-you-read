@@ -1,14 +1,20 @@
 import React, { PropTypes } from 'react'
+import { gotoNextQuiz }     from '../actions'
 
-const Hint = ({ hint, kana, openHint, onClick }) => (
+const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
   <div>
-    <button onClick={onClick}>
+    <button onClick={onHintClick}>
       Hint
     </button>
     {(() => {
       if(openHint) {
         return (
-          <p>ヒント: {hint}文字目は「{kana[hint-1]}」</p>
+          <p>
+            ヒント: {hint}文字目は「{kana[hint-1]}」
+            <button onClick={onSkipClick}>
+              この問題をパス
+            </button>
+          </p>
         )
       }
     })()}
@@ -19,7 +25,8 @@ Hint.propTypes = {
   hint: PropTypes.number.isRequired,
   kana: PropTypes.string.isRequired,
   openHint: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired
+  onHintClick: PropTypes.func.isRequired,
+  onSkipClick: PropTypes.func.isRequired
 }
 
 export default Hint

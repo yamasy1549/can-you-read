@@ -3,7 +3,7 @@ import Quiz                 from './Quiz'
 import Hint                 from './Hint'
 import Answer               from './Answer'
 
-const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onAnswerClick }) => (
+const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onAnswerClick, onSkipClick }) => (
   <main>
     {(() => {
       if(quizzes.length) {
@@ -18,7 +18,8 @@ const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onA
             <Hint
               openHint={openHint}
               {...quiz}
-              onClick={() => onHintClick(openHint)}
+              onHintClick={() => onHintClick(openHint)}
+              onSkipClick={() => onSkipClick()}
             />
             <Answer
               openAnswer={openAnswer}

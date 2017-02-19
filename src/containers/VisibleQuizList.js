@@ -1,6 +1,6 @@
-import { connect }                  from 'react-redux'
-import QuizList                     from '../components/QuizList'
-import { toggleHint, toggleAnswer } from '../actions'
+import { connect }                                from 'react-redux'
+import QuizList                                   from '../components/QuizList'
+import { toggleHint, toggleAnswer, gotoNextQuiz } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -13,6 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, openHint, openAnswer) => {
   return {
+    onSkipClick: () => {
+      dispatch(gotoNextQuiz())
+    },
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
     },
