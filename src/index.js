@@ -7,7 +7,7 @@ import { Provider }                      from 'react-redux'
 import { applyMiddleware, createStore }  from 'redux'
 import App                               from './components/App'
 import quizzes                           from './reducers'
-import { fetchQuizzes }                  from './actions'
+import { fetchQuizzes, setQuizCount }    from './actions'
 
 const logger = createLogger()
 const store = createStore(
@@ -16,6 +16,7 @@ const store = createStore(
 )
 
 store.dispatch(fetchQuizzes())
+store.dispatch(setQuizCount())
 
 render(
   <Provider store={store}>

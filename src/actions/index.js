@@ -3,6 +3,13 @@ import axios from 'axios'
 let currentQuiz = 1
 const quizCount = 10
 
+export const setQuizCount = () => {
+  return {
+    type: 'SET_QUIZ_COUNT',
+    quizCount
+  }
+}
+
 export const startFetchQuizzes = () => {
   return {
     type: 'FETCH_QUIZZES_START'
