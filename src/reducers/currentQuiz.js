@@ -1,7 +1,6 @@
-const currentQuiz = (state = 0, action) => {
+const currentQuiz = (state = 1, action) => {
   switch (action.type) {
     case 'GOTO_NEXT_QUIZ':
-      return action.currentQuiz
     case 'GOTO_PREV_QUIZ':
       return action.currentQuiz
     default:

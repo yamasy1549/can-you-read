@@ -7,21 +7,22 @@ const QuizList = ({ quizzes, currentQuiz, openHint, openAnswer, onHintClick, onA
   <main>
     {(() => {
       if(quizzes.length) {
+        let quiz = quizzes[currentQuiz-1]
         return (
           <section>
             <Quiz
-              key={quizzes[currentQuiz].id}
+              key={quiz.id}
               currentQuiz={currentQuiz}
-              {...quizzes[currentQuiz]}
+              {...quiz}
             />
             <Hint
               openHint={openHint}
-              {...quizzes[currentQuiz]}
+              {...quiz}
               onClick={() => onHintClick(openHint)}
             />
             <Answer
               openAnswer={openAnswer}
-              {...quizzes[currentQuiz]}
+              {...quiz}
               onClick={() => onAnswerClick(openAnswer)}
             />
           </section>

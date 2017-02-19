@@ -1,6 +1,7 @@
-let currentQuiz = 0
-
 import axios from 'axios'
+
+let currentQuiz = 1
+const quizCount = 10
 
 export const startFetchQuizzes = () => {
   return {
@@ -26,7 +27,7 @@ export const fetchQuizzes = () => {
   return (dispatch) => {
     dispatch(startFetchQuizzes())
 
-    const url = 'http://localhost:4567/api/quizzes/random/10'
+    const url = 'http://localhost:4567/api/quizzes/random/' + String(quizCount)
     let quizzes = []
     axios.get(url)
       .then((response) => {
@@ -40,16 +41,18 @@ export const fetchQuizzes = () => {
 }
 
 export const gotoNextQuiz = () => {
+  currentQuiz = (quizCount < currentQuiz+1) ? quizCount : ++currentQuiz
   return {
     type: 'GOTO_NEXT_QUIZ',
-    currentQuiz: ++currentQuiz
+    currentQuiz
   }
 }
 
 export const gotoPrevQuiz = () => {
+  currentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
   return {
     type: 'GOTO_PREV_QUIZ',
-    currentQuiz: --currentQuiz
+    currentQuiz
   }
 }
 

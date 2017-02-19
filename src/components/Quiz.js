@@ -4,7 +4,7 @@ import { toJapanese }       from 'jp-num'
 const Quiz = ({ kanji, kana, prefecture, level, currentQuiz }) => (
   <section>
     <p>
-      第{toJapanese(String(currentQuiz+1))}問
+      第{toJapanese(String(currentQuiz))}問
       Lv. {level}
     </p>
     <span>{kanji}({prefecture})</span>
