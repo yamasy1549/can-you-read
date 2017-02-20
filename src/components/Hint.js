@@ -1,20 +1,22 @@
 import React, { PropTypes } from 'react'
 import { gotoNextQuiz }     from '../actions'
+import { toJapanese }       from 'jp-num'
+import styles               from './Hint.css'
 
 const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
-  <div>
-    <button onClick={onHintClick}>
-      Hint
+  <div className={styles.hintWrapper}>
+    <button onClick={onHintClick} className={styles.hintButton}>
+      ？
     </button>
     {(() => {
       if(openHint) {
         return (
-          <p>
-            ヒント: {hint}文字目は「{kana[hint-1]}」
-            <button onClick={onSkipClick}>
+          <div className={styles.hint}>
+            {toJapanese(String(hint))}文字目は「{kana[hint-1]}」
+            <button onClick={onSkipClick} className={styles.passButton}>
               この問題をパス
             </button>
-          </p>
+          </div>
         )
       }
     })()}

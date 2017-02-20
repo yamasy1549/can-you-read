@@ -1,0 +1,38 @@
+.hintWrapper {
+  position: relative;
+}
+
+.hintButton {
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 50%;
+  margin: calc(100vh - 14rem) calc((14rem - 3rem)/2) auto;
+  padding: 0;
+  font-size: 2rem;
+  background: var(--purple);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.hint {
+  position: absolute;
+  bottom: 5rem;
+  right: 0;
+  width: 14rem;
+  padding: 5rem;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 1.8rem;
+}
+
+.passButton {
+  border: 0;
+  background: transparent;
+  color: var(--light-purple);
+  cursor: pointer;
+}
+
+.passButton:after {
+  content: '▼'
+}
