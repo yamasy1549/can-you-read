@@ -15,10 +15,15 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: { presets: 'es2017' },
-        }]
+        use: { loader: 'babel-loader', options: { presets: 'es2017' } }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { modules: true } }
+        ]
       }
     ]
   }
