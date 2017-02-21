@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
 import { connect }          from 'react-redux'
+import styles               from './Answer.css'
 
 const Answer = ({ kana, description, openAnswer, onClick }) => (
- <div>
-   <input id='answer' />
-   <button onClick={onClick}>
-     Answer
+ <div className={styles.answerWrapper}>
+   <input className={styles.input} id='answer' autoFocus={true} />
+   <button className={styles.answerButton} onClick={onClick}>
+     決定
    </button>
    {(() => {
      if(openAnswer) {
