@@ -12,7 +12,7 @@ const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
       if(openHint) {
         return (
           <div className={styles.hint}>
-            {toJapanese(String(hint))}文字目は「{kana[hint-1]}」
+            <p className={styles.message}>{toJapanese(String(hint))}文字目は「{kana[hint-1]}」</p>
             <button onClick={onSkipClick} className={styles.passButton}>
               この問題をパス
             </button>
