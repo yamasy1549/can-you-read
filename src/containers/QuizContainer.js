@@ -16,13 +16,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, openHint, openAnswer) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
     },
     onNextClick: () => {
       dispatch(gotoNextQuiz())
+      document.getElementById('answer').value = ''
     },
     onAnswerClick: (openAnswer) => {
       dispatch(toggleAnswer(openAnswer))
