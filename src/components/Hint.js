@@ -3,7 +3,7 @@ import { gotoNextQuiz }     from '../actions'
 import { toJapanese }       from 'jp-num'
 import styles               from './Hint.css'
 
-const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
+const Hint = ({ hint, kana, openHint, onHintClick, onNextClick }) => (
   <div className={styles.hintWrapper}>
     <button onClick={onHintClick} className={styles.hintButton}>
       ？
@@ -13,7 +13,7 @@ const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
         return (
           <div className={styles.hint}>
             <p className={styles.message}>{toJapanese(String(hint))}文字目は「{kana[hint-1]}」</p>
-            <button onClick={onSkipClick} className={styles.passButton}>
+            <button onClick={onNextClick} className={styles.passButton}>
               この問題をパス
             </button>
           </div>
@@ -24,11 +24,11 @@ const Hint = ({ hint, kana, openHint, onHintClick, onSkipClick }) => (
 )
 
 Hint.propTypes = {
-  hint: PropTypes.number.isRequired,
-  kana: PropTypes.string.isRequired,
-  openHint: PropTypes.bool.isRequired,
+  hint:        PropTypes.number.isRequired,
+  kana:        PropTypes.string.isRequired,
+  openHint:    PropTypes.bool.isRequired,
   onHintClick: PropTypes.func.isRequired,
-  onSkipClick: PropTypes.func.isRequired
+  onNextClick: PropTypes.func.isRequired
 }
 
 export default Hint

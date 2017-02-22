@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import CurrentQuiz from '../components/CurrentQuiz'
+import Progress    from '../components/Progress'
 
 const mapStateToProps = (state) => {
   return {
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const CurrentQuizController = connect(
+const ProgressContainer = connect(
   mapStateToProps
-)(CurrentQuiz)
-export default CurrentQuizController
+)(Progress)
+export default ProgressContainer

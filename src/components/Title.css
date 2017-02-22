@@ -1,0 +1,9 @@
+.title {
+  display: inline-block;
+  margin: auto 3rem;
+  padding: 6rem 1.5rem;
+  font-size: 3rem;
+  letter-spacing: 0.3rem;
+  color: var(--white);
+  background: var(--blue);
+}

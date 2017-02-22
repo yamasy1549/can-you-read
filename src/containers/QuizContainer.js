@@ -1,10 +1,15 @@
-import { connect }                                from 'react-redux'
-import QuizList                                   from '../components/QuizList'
-import { toggleHint, toggleAnswer, gotoNextQuiz } from '../actions'
+import { connect } from 'react-redux'
+import Quiz        from '../components/Quiz'
+import {
+  toggleHint,
+  toggleAnswer,
+  gotoNextQuiz
+} from '../actions'
 
 const mapStateToProps = (state) => {
   return {
     quizzes:     state.quizzes,
+    quizCount:   state.quizCount,
     currentQuiz: state.currentQuiz,
     openHint:    state.openHint,
     openAnswer:  state.openAnswer
@@ -13,11 +18,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, openHint, openAnswer) => {
   return {
-    onSkipClick: () => {
-      dispatch(gotoNextQuiz())
-    },
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
+    },
+    onNextClick: () => {
+      dispatch(gotoNextQuiz())
     },
     onAnswerClick: (openAnswer) => {
       dispatch(toggleAnswer(openAnswer))
@@ -25,8 +30,8 @@ const mapDispatchToProps = (dispatch, openHint, openAnswer) => {
   }
 }
 
-const VisibleQuizList = connect(
+const QuizContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(QuizList)
-export default VisibleQuizList
+)(Quiz)
+export default QuizContainer

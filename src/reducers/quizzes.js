@@ -2,13 +2,14 @@ const quiz = (state, action, quiz) => {
   switch (action.type) {
     case 'FETCH_QUIZZES_SUCCESS':
       return {
-        id:          quiz.id,
-        kanji:       quiz.kanji,
-        kana:        quiz.kana,
-        prefecture:  quiz.prefecture,
-        level:       quiz.level,
-        hint:        quiz.hint,
-        description: quiz.description
+        id:             quiz.id,
+        kanji:          quiz.kanji,
+        kana:           quiz.kana,
+        prefecture:     quiz.prefecture,
+        prefectureCode: quiz.prefecture_code,
+        level:          quiz.level,
+        hint:           quiz.hint,
+        description:    quiz.description
       }
   }
 }

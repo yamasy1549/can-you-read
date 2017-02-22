@@ -1,15 +1,17 @@
-import React                 from 'react'
-import CurrentQuizController from '../containers/CurrentQuizController'
-import VisibleQuizList       from '../containers/VisibleQuizList'
-import reset                 from './reset.css'
-import variables             from './variables.css';
-import base                  from './base.css'
-import styles                from './App.css'
+import React             from 'react'
+import Title             from '../components/Title'
+import ProgressContainer from '../containers/ProgressContainer'
+import QuizContainer     from '../containers/QuizContainer'
+import reset             from './reset.css'
+import variables         from './variables.css';
+import base              from './base.css'
+import styles            from './App.css'
 
 const App = () => (
   <div className={styles.app}>
-    <CurrentQuizController />
-    <VisibleQuizList />
+    <Title />
+    <ProgressContainer />
+    <QuizContainer />
   </div>
 )
 export default App
