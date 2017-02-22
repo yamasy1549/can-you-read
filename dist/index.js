@@ -12916,7 +12916,14 @@ module.exports = function spread(callback) {
 
 
 
-const Answer = ({ kana, description, correct, onNextClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+const key = 'AIzaSyDDRFpo9sNZXwfRgmX4454_IJNubuuKFDQ';
+const size = '450x800';
+const scale = '2';
+const zoom = '8';
+const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`;
+console.log(mapURL);
+
+const Answer = ({ prefecture, kanji, kana, description, correct, onNextClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
   { className: __WEBPACK_IMPORTED_MODULE_2__Answer_css___default.a.answerWrapper },
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -12928,6 +12935,7 @@ const Answer = ({ kana, description, correct, onNextClick }) => __WEBPACK_IMPORT
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
     '\u89E3\u8AAC: ',
     description,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mapURL + prefecture + kanji, alt: kanji, className: __WEBPACK_IMPORTED_MODULE_2__Answer_css___default.a.map }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'button',
       { onClick: onNextClick },
@@ -12937,6 +12945,8 @@ const Answer = ({ kana, description, correct, onNextClick }) => __WEBPACK_IMPORT
 );
 
 Answer.propTypes = {
+  prefecture: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].string.isRequired,
+  kanji: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].string.isRequired,
   kana: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].string.isRequired,
   description: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].string.isRequired,
   onNextClick: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].func.isRequired
@@ -13275,8 +13285,11 @@ const mapDispatchToProps = dispatch => {
       document.getElementById('answer').value = '';
     },
     onAnswerClick: (openAnswer, answer) => {
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["e" /* toggleAnswer */])(openAnswer));
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["f" /* checkAnswer */])(document.getElementById('answer').value, answer));
+      const input = document.getElementById('answer').value;
+      if (input.length) {
+        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["e" /* toggleAnswer */])(openAnswer));
+        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["f" /* checkAnswer */])(input, answer));
+      }
     }
   };
 };
@@ -13438,11 +13451,12 @@ exports = module.exports = __webpack_require__(11)();
 
 
 // module
-exports.push([module.i, "._3Ovc2oLrH8uQmuCvE1pf5Y {\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "._3Ovc2oLrH8uQmuCvE1pf5Y {\n  position: relative;\n}\n\n._3AtSMaSeNoHZFalGKF_LTo {\n  width: 450px;\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"answerWrapper": "_3Ovc2oLrH8uQmuCvE1pf5Y"
+	"answerWrapper": "_3Ovc2oLrH8uQmuCvE1pf5Y",
+	"map": "_3AtSMaSeNoHZFalGKF_LTo"
 };
 
 /***/ }),
