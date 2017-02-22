@@ -34,8 +34,8 @@ export const fetchQuizzes = () => {
   return (dispatch) => {
     dispatch(startFetchQuizzes())
 
-    // const url = 'http://localhost:4567/api/quizzes/random/' + String(quizCount)
-    const url = 'https://can-you-read.herokuapp.com/api/quizzes/random/' + String(quizCount)
+    const url = 'http://localhost:4567/api/quizzes/random/' + String(quizCount)
+    // const url = 'https://can-you-read.herokuapp.com/api/quizzes/random/' + String(quizCount)
     let quizzes = []
     axios.get(url)
       .then((response) => {

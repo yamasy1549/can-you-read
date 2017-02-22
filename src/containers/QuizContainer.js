@@ -31,8 +31,11 @@ const mapDispatchToProps = (dispatch) => {
 
     },
     onAnswerClick: (openAnswer, answer) => {
-      dispatch(toggleAnswer(openAnswer))
-      dispatch(checkAnswer(document.getElementById('answer').value, answer))
+      const input = document.getElementById('answer').value
+      if(input.length) {
+        dispatch(toggleAnswer(openAnswer))
+        dispatch(checkAnswer(input, answer))
+      }
     }
   }
 }
