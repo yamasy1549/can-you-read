@@ -6,12 +6,11 @@ import AnswerForm           from '../components/AnswerForm'
 import Answer               from '../components/Answer'
 
 const Quiz = ({
-  quizzes, quizCount, currentQuiz, openHint, openAnswer,
+  quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, correct,
   onHintClick, onNextClick, onAnswerClick
 }) => (
   <main>
     {(() => {
-      let quiz = quizzes[currentQuiz-1]
       if(quiz) {
         return (
           <div>
@@ -29,13 +28,14 @@ const Quiz = ({
               onNextClick={() => onNextClick()}
             />
             <AnswerForm
-              onAnswerClick={() => onAnswerClick(openAnswer)}
+              onAnswerClick={() => onAnswerClick(openAnswer, quiz.kana)}
             />
             {(() => {
               if(openAnswer) {
                 return (
                   <Answer
                     {...quiz}
+                    correct={correct}
                     onNextClick={() => onNextClick()}
                   />
                 )

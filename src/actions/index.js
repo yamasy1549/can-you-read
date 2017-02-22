@@ -77,3 +77,10 @@ export const toggleAnswer = (openAnswer) => {
     openAnswer
   }
 }
+
+export const checkAnswer = (input, answer) => {
+  return {
+    type: 'CHECK_ANSWER',
+    correct: (input === answer) ? true : false
+  }
+}

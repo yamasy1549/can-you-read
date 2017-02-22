@@ -3,20 +3,24 @@ import Quiz        from '../components/Quiz'
 import {
   toggleHint,
   toggleAnswer,
+  checkAnswer,
   gotoNextQuiz
 } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
     quizzes:     state.quizzes,
+    quiz:        state.quizzes[state.currentQuiz-1],
     quizCount:   state.quizCount,
     currentQuiz: state.currentQuiz,
     openHint:    state.openHint,
-    openAnswer:  state.openAnswer
+    openAnswer:  state.openAnswer,
+    correct:     state.correct
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
+  // TODO: document.getElementById('answer') をまとめたい
   return {
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
@@ -24,9 +28,11 @@ const mapDispatchToProps = (dispatch) => {
     onNextClick: () => {
       dispatch(gotoNextQuiz())
       document.getElementById('answer').value = ''
+
     },
-    onAnswerClick: (openAnswer) => {
+    onAnswerClick: (openAnswer, answer) => {
       dispatch(toggleAnswer(openAnswer))
+      dispatch(checkAnswer(document.getElementById('answer').value, answer))
     }
   }
 }
