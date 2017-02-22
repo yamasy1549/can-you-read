@@ -1,3 +1,7 @@
 .answerWrapper {
   position: relative;
 }
+
+.map {
+  width: 450px;
+}
