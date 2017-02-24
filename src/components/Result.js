@@ -12,6 +12,9 @@ const Result = ({ quizCount, pass, correct, incorrect, onReplayClick }) => (
     </ul>
     <div>評価: {resultsToJapanese(correct, quizCount)}</div>
     <div>
+      <button>
+        <a href={`\/\/twitter.com/intent/tweet?text=難読地名くいずで${quizCount}問中${correct}問正解しました`}>Twitterで共有</a>
+      </button>
       <button onClick={onReplayClick}>
         最初からあそぶ
       </button>
