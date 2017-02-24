@@ -1,9 +1,6 @@
 import axios from 'axios'
 
-let currentQuiz = 1
-const quizCount = 10
-
-export const setQuizCount = () => {
+export const setQuizCount = (quizCount) => {
   return {
     type: 'SET_QUIZ_COUNT',
     quizCount
@@ -30,7 +27,7 @@ export const failureFetchQuizzes = (error) => {
   }
 }
 
-export const fetchQuizzes = () => {
+export const fetchQuizzes = (quizCount) => {
   return (dispatch) => {
     dispatch(startFetchQuizzes())
 
@@ -48,19 +45,19 @@ export const fetchQuizzes = () => {
   }
 }
 
-export const gotoNextQuiz = () => {
-  const currentQuiz = (quizCount < currentQuiz+1) ? quizCount : ++currentQuiz
+export const gotoNextQuiz = (currentQuiz, quizCount) => {
+  const newCurrentQuiz = (quizCount < currentQuiz+1) ? quizCount : ++currentQuiz
   return {
     type: 'GOTO_NEXT_QUIZ',
-    currentQuiz
+    newCurrentQuiz
   }
 }
 
-export const gotoPrevQuiz = () => {
-  const currentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
+export const gotoPrevQuiz = (currentQuiz) => {
+  const newCurrentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
   return {
     type: 'GOTO_PREV_QUIZ',
-    currentQuiz
+    newCurrentQuiz
   }
 }
 
@@ -90,5 +87,29 @@ export const checkAnswer = (input, answer, currentQuiz) => {
       type: 'BE_INCORRECT_ANSWER',
       currentQuiz
     }
+  }
+}
+
+export const tallyAnswers = (quizzes) => {
+  let pass = 0
+  let correct = 0
+  let incorrect = 0
+
+  quizzes.map((quiz) => {
+    let correctAnswer = quiz.correctAnswer
+    if(correctAnswer == null) {
+      pass++
+    } else if(correctAnswer) {
+      correct++
+    } else {
+      incorrect++
+    }
+  })
+
+  return {
+    type: 'TALLY_ANSWERS',
+    pass,
+    correct,
+    incorrect
   }
 }

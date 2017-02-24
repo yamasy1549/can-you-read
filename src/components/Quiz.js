@@ -4,10 +4,11 @@ import PlaceName            from '../components/PlaceName'
 import Hint                 from '../components/Hint'
 import AnswerForm           from '../components/AnswerForm'
 import Answer               from '../components/Answer'
+import Result               from '../components/Result'
 
 const Quiz = ({
-  quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer,
-  onHintClick, onNextClick, onAnswerClick
+  quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
+  onHintClick, onNextClick, onAnswerClick, onResultClick
 }) => (
   <main>
     {(() => {
@@ -25,7 +26,7 @@ const Quiz = ({
               {...quiz}
               openHint={openHint}
               onHintClick={() => onHintClick(openHint)}
-              onNextClick={() => onNextClick()}
+              onNextClick={() => onNextClick(currentQuiz, quizCount)}
             />
             <AnswerForm
               onAnswerClick={() => onAnswerClick(openAnswer, quiz.kana, currentQuiz)}
@@ -35,7 +36,20 @@ const Quiz = ({
                 return (
                   <Answer
                     {...quiz}
-                    onNextClick={() => onNextClick()}
+                    quizCount={quizCount}
+                    currentQuiz={currentQuiz}
+                    results={results}
+                    onNextClick={() => onNextClick(currentQuiz, quizCount)}
+                    onResultClick={() => onResultClick(quizzes)}
+                  />
+                )
+              }
+            })()}
+            {(() => {
+              if(Object.keys(results).length) {
+                return (
+                  <Result
+                    {...results}
                   />
                 )
               }
@@ -49,9 +63,11 @@ const Quiz = ({
 
 Quiz.propTypes = {
   quizzes:          PropTypes.array.isRequired,
+  quiz:             PropTypes.object,
   quizCount:        PropTypes.number.isRequired,
   currentQuiz:      PropTypes.number.isRequired,
   openHint:         PropTypes.bool.isRequired,
-  openAnswer:       PropTypes.bool.isRequired
+  openAnswer:       PropTypes.bool.isRequired,
+  results:          PropTypes.object.isRequired
 }
 export default Quiz

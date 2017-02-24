@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { gotoNextQuiz }     from '../actions'
 import { toJapanese }       from 'jp-num'
 import styles               from './Hint.css'
 

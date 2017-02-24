@@ -4,7 +4,8 @@ import {
   toggleHint,
   toggleAnswer,
   checkAnswer,
-  gotoNextQuiz
+  gotoNextQuiz,
+  tallyAnswers
 } from '../actions'
 
 const mapStateToProps = (state) => {
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => {
     quizCount:   state.quizCount,
     currentQuiz: state.currentQuiz,
     openHint:    state.openHint,
-    openAnswer:  state.openAnswer
+    openAnswer:  state.openAnswer,
+    results:     state.results
   }
 }
 
@@ -24,17 +26,19 @@ const mapDispatchToProps = (dispatch) => {
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
     },
-    onNextClick: () => {
-      dispatch(gotoNextQuiz())
-      document.getElementById('answer').value = ''
-
-    },
     onAnswerClick: (openAnswer, answer, currentQuiz) => {
       const input = document.getElementById('answer').value
       if(input.length) {
         dispatch(toggleAnswer(openAnswer))
         dispatch(checkAnswer(input, answer, currentQuiz))
       }
+    },
+    onNextClick: (currentQuiz, quizCount) => {
+      dispatch(gotoNextQuiz(currentQuiz, quizCount))
+      document.getElementById('answer').value = ''
+    },
+    onResultClick: (quizzes) => {
+      dispatch(tallyAnswers(quizzes))
     }
   }
 }
