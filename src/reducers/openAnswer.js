@@ -4,6 +4,7 @@ const openAnswer = (state = false, action) => {
       return !action.openAnswer
     case 'GOTO_NEXT_QUIZ':
     case 'GOTO_PREV_QUIZ':
+    case 'RESET':
       return false
     default:
       return state

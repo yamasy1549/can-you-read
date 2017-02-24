@@ -1,5 +1,19 @@
 import axios from 'axios'
 
+export const initialize = (quizCount) => {
+  return (dispatch) => {
+    dispatch(reset())
+    dispatch(setQuizCount(quizCount))
+    dispatch(fetchQuizzes(quizCount))
+  }
+}
+
+export const reset = () => {
+  return {
+    type: 'RESET'
+  }
+}
+
 export const setQuizCount = (quizCount) => {
   return {
     type: 'SET_QUIZ_COUNT',

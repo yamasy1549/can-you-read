@@ -4,7 +4,12 @@ import styles               from './AnswerForm.css'
 
 const AnswerForm = ({ onAnswerClick }) => (
  <div className={styles.answerFormWrapper}>
-   <input className={styles.input} id='answer' autoFocus={true} />
+   <input
+     id='answer'
+     className={styles.input}
+     autoFocus={true}
+     placeholder='ここに読み仮名を入力'
+   />
    <button className={styles.answerButton} onClick={onAnswerClick}>
      決定
    </button>

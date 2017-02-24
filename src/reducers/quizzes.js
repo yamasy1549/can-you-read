@@ -38,6 +38,8 @@ const quizzes = (state = [], action) => {
           return q
         }
       })
+    case 'RESET':
+      return []
     default:
       return state
   }

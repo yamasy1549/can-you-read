@@ -6,6 +6,8 @@ const results = (state = {}, action) => {
         correct: action.correct,
         incorrect: action.incorrect
       }
+    case 'RESET':
+      return {}
     default:
       return state
   }

@@ -3,7 +3,7 @@ import { toJapanese }        from 'jp-num'
 import { resultsToJapanese } from '../functions'
 import styles                from './Result.css'
 
-const Result = ({ quizCount, pass, correct, incorrect }) => (
+const Result = ({ quizCount, pass, correct, incorrect, onReplayClick }) => (
   <div>
     <ul>
       <li>正解 {toJapanese(String(correct))}問</li>
@@ -11,6 +11,11 @@ const Result = ({ quizCount, pass, correct, incorrect }) => (
       <li>パス {toJapanese(String(pass))}問</li>
     </ul>
     <div>評価: {resultsToJapanese(correct, quizCount)}</div>
+    <div>
+      <button onClick={onReplayClick}>
+        最初からあそぶ
+      </button>
+    </div>
   </div>
 )
 

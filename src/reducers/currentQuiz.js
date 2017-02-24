@@ -3,6 +3,8 @@ const currentQuiz = (state = 1, action) => {
     case 'GOTO_NEXT_QUIZ':
     case 'GOTO_PREV_QUIZ':
       return action.newCurrentQuiz
+    case 'RESET':
+      return 1
     default:
       return state
   }

@@ -8,7 +8,7 @@ import Result               from '../components/Result'
 
 const Quiz = ({
   quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
-  onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick
+  onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick, onReplayClick
 }) => (
   <main>
     {(() => {
@@ -50,6 +50,7 @@ const Quiz = ({
                 return (
                   <Result
                     quizCount={quizCount}
+                    onReplayClick={() => onReplayClick(quizCount)}
                     {...results}
                   />
                 )

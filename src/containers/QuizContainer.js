@@ -5,7 +5,8 @@ import {
   toggleAnswer,
   checkAnswer,
   gotoNextQuiz,
-  tallyAnswers
+  tallyAnswers,
+  initialize
 } from '../actions'
 
 const mapStateToProps = (state) => {
@@ -42,6 +43,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onResultClick: (quizzes) => {
       dispatch(tallyAnswers(quizzes))
+    },
+    onReplayClick: (quizCount) => {
+      dispatch(initialize(quizCount))
     }
   }
 }
