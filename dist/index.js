@@ -7641,13 +7641,31 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
+const initialize = quizCount => {
+  return dispatch => {
+    dispatch(reset());
+    dispatch(setQuizCount(quizCount));
+    dispatch(fetchQuizzes(quizCount));
+  };
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = initialize;
+
+
+const reset = () => {
+  return {
+    type: 'RESET'
+  };
+};
+/* unused harmony export reset */
+
+
 const setQuizCount = quizCount => {
   return {
     type: 'SET_QUIZ_COUNT',
     quizCount
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["a"] = setQuizCount;
+/* unused harmony export setQuizCount */
 
 
 const startFetchQuizzes = () => {
@@ -7691,7 +7709,7 @@ const fetchQuizzes = quizCount => {
     });
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["b"] = fetchQuizzes;
+/* unused harmony export fetchQuizzes */
 
 
 const gotoNextQuiz = (currentQuiz, quizCount) => {
@@ -7701,7 +7719,7 @@ const gotoNextQuiz = (currentQuiz, quizCount) => {
     newCurrentQuiz
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["f"] = gotoNextQuiz;
+/* harmony export (immutable) */ __webpack_exports__["e"] = gotoNextQuiz;
 
 
 const gotoPrevQuiz = currentQuiz => {
@@ -7720,7 +7738,7 @@ const toggleHint = openHint => {
     openHint
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["c"] = toggleHint;
+/* harmony export (immutable) */ __webpack_exports__["b"] = toggleHint;
 
 
 const toggleAnswer = openAnswer => {
@@ -7729,7 +7747,7 @@ const toggleAnswer = openAnswer => {
     openAnswer
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["d"] = toggleAnswer;
+/* harmony export (immutable) */ __webpack_exports__["c"] = toggleAnswer;
 
 
 const checkAnswer = (input, answer, currentQuiz) => {
@@ -7746,7 +7764,7 @@ const checkAnswer = (input, answer, currentQuiz) => {
     };
   }
 };
-/* harmony export (immutable) */ __webpack_exports__["e"] = checkAnswer;
+/* harmony export (immutable) */ __webpack_exports__["d"] = checkAnswer;
 
 
 const tallyAnswers = quizzes => {
@@ -7772,7 +7790,7 @@ const tallyAnswers = quizzes => {
     incorrect
   };
 };
-/* harmony export (immutable) */ __webpack_exports__["g"] = tallyAnswers;
+/* harmony export (immutable) */ __webpack_exports__["f"] = tallyAnswers;
 
 
 /***/ }),
@@ -11906,9 +11924,13 @@ function warning(message) {
 
 const App = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
-  { className: __WEBPACK_IMPORTED_MODULE_7__App_css___default.a.app },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Title__["a" /* default */], null),
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__containers_ProgressContainer__["a" /* default */], null),
+  { className: __WEBPACK_IMPORTED_MODULE_7__App_css___default.a.canyouread },
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'header',
+    { className: __WEBPACK_IMPORTED_MODULE_7__App_css___default.a.header },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__components_Title__["a" /* default */], null),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__containers_ProgressContainer__["a" /* default */], null)
+  ),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__containers_QuizContainer__["a" /* default */], null)
 );
 /* harmony default export */ __webpack_exports__["a"] = App;
@@ -13059,7 +13081,12 @@ Answer.propTypes = {
 const AnswerForm = ({ onAnswerClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
   { className: __WEBPACK_IMPORTED_MODULE_2__AnswerForm_css___default.a.answerFormWrapper },
-  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: __WEBPACK_IMPORTED_MODULE_2__AnswerForm_css___default.a.input, id: 'answer', autoFocus: true }),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+    id: 'answer',
+    className: __WEBPACK_IMPORTED_MODULE_2__AnswerForm_css___default.a.input,
+    autoFocus: true,
+    placeholder: '\u3053\u3053\u306B\u8AAD\u307F\u4EEE\u540D\u3092\u5165\u529B'
+  }),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'button',
     { className: __WEBPACK_IMPORTED_MODULE_2__AnswerForm_css___default.a.answerButton, onClick: onAnswerClick },
@@ -13089,7 +13116,7 @@ AnswerForm.propTypes = {
 
 const Hint = ({ hint, kana, openHint, onHintClick, onPassClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
-  { className: __WEBPACK_IMPORTED_MODULE_2__Hint_css___default.a.hintWrapper },
+  null,
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'button',
     { onClick: onHintClick, className: __WEBPACK_IMPORTED_MODULE_2__Hint_css___default.a.hintButton },
@@ -13256,7 +13283,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 const Quiz = ({
   quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
-  onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick
+  onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick, onReplayClick
 }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'main',
   null,
@@ -13291,7 +13318,8 @@ const Quiz = ({
         (() => {
           if (Object.keys(results).length) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_Result__["a" /* default */], _extends({
-              quizCount: quizCount
+              quizCount: quizCount,
+              onReplayClick: () => onReplayClick(quizCount)
             }, results));
           }
         })()
@@ -13328,7 +13356,7 @@ Quiz.propTypes = {
 
 
 
-const Result = ({ quizCount, pass, correct, incorrect }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+const Result = ({ quizCount, pass, correct, incorrect, onReplayClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
   null,
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -13361,6 +13389,24 @@ const Result = ({ quizCount, pass, correct, incorrect }) => __WEBPACK_IMPORTED_M
     null,
     '\u8A55\u4FA1: ',
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__functions__["a" /* resultsToJapanese */])(correct, quizCount)
+  ),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    null,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'button',
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'a',
+        { href: `\/\/twitter.com/intent/tweet?text=難読地名くいずで${quizCount}問中${correct}問正解しました` },
+        'Twitter\u3067\u5171\u6709'
+      )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'button',
+      { onClick: onReplayClick },
+      '\u6700\u521D\u304B\u3089\u3042\u305D\u3076'
+    )
   )
 );
 
@@ -13441,24 +13487,27 @@ const mapDispatchToProps = dispatch => {
   // TODO: document.getElementById('answer') をまとめたい
   return {
     onHintClick: openHint => {
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* toggleHint */])(openHint));
+      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["b" /* toggleHint */])(openHint));
     },
     onPassClick: openAnswer => {
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["d" /* toggleAnswer */])(openAnswer));
+      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* toggleAnswer */])(openAnswer));
     },
     onAnswerClick: (openAnswer, answer, currentQuiz) => {
       const input = document.getElementById('answer').value;
       if (input.length) {
-        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["d" /* toggleAnswer */])(openAnswer));
-        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["e" /* checkAnswer */])(input, answer, currentQuiz));
+        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["c" /* toggleAnswer */])(openAnswer));
+        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["d" /* checkAnswer */])(input, answer, currentQuiz));
       }
     },
     onNextClick: (currentQuiz, quizCount) => {
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["f" /* gotoNextQuiz */])(currentQuiz, quizCount));
+      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["e" /* gotoNextQuiz */])(currentQuiz, quizCount));
       document.getElementById('answer').value = '';
     },
     onResultClick: quizzes => {
-      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["g" /* tallyAnswers */])(quizzes));
+      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["f" /* tallyAnswers */])(quizzes));
+    },
+    onReplayClick: quizCount => {
+      dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* initialize */])(quizCount));
     }
   };
 };
@@ -13476,6 +13525,8 @@ const currentQuiz = (state = 1, action) => {
     case 'GOTO_NEXT_QUIZ':
     case 'GOTO_PREV_QUIZ':
       return action.newCurrentQuiz;
+    case 'RESET':
+      return 1;
     default:
       return state;
   }
@@ -13494,6 +13545,7 @@ const openAnswer = (state = false, action) => {
       return !action.openAnswer;
     case 'GOTO_NEXT_QUIZ':
     case 'GOTO_PREV_QUIZ':
+    case 'RESET':
       return false;
     default:
       return state;
@@ -13513,6 +13565,7 @@ const openHint = (state = false, action) => {
       return !action.openHint;
     case 'GOTO_NEXT_QUIZ':
     case 'GOTO_PREV_QUIZ':
+    case 'RESET':
       return false;
     default:
       return state;
@@ -13580,6 +13633,8 @@ const quizzes = (state = [], action) => {
           return q;
         }
       });
+    case 'RESET':
+      return [];
     default:
       return state;
   }
@@ -13600,6 +13655,8 @@ const results = (state = {}, action) => {
         correct: action.correct,
         incorrect: action.incorrect
       };
+    case 'RESET':
+      return {};
     default:
       return state;
   }
@@ -13633,13 +13690,12 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._2TtJ59Cez7eF-mtIJ1eIn4 {\n}\n\n._35bWm_o5iOXNRxYCYXT-qM {\n  position: absolute;\n  width: 6rem;\n  height: 6rem;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  border: 0;\n  border-radius: 50%;\n  right: 20rem;\n  bottom: 4rem;\n  background: var(--orange);\n  color: var(--white);\n  font-size: 2rem;\n  cursor: pointer;\n  -webkit-writing-mode: initial;\n      -ms-writing-mode: initial;\n          writing-mode: initial;\n  font-family: var(--mincho);\n}\n\n._35bWm_o5iOXNRxYCYXT-qM:before {\n  content: '';\n  display: block;\n  position: absolute;\n  width: 80vh;\n  height: 0.2rem;\n  right: 6rem;\n  bottom: 50%;\n  z-index: -1;\n  background: var(--purple);\n  pointer-events: none;\n}\n\n._3DyUU5HCyzprxXgMy8et1S {\n  position: absolute;\n  border: 0;\n  width: 16em;\n  height: 6rem;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  right: 0;\n  top: 16rem;\n  margin-top: 20rem;\n  padding: 1.4rem;\n  background: transparent;\n  font-size: 2.2rem;\n  font-weight: bold;\n  overflow: hidden;\n  color: var(--purple);\n  font-family: var(--mincho);\n  word-wrap: break-word;\n  -webkit-writing-mode: initial;\n      -ms-writing-mode: initial;\n          writing-mode: initial;\n  text-align: center;\n  letter-spacing: 0.5rem;\n}\n\n._3DyUU5HCyzprxXgMy8et1S:focus {\n  outline: none;\n}\n", ""]);
+exports.push([module.i, "._3DyUU5HCyzprxXgMy8et1S {\n  position: absolute;\n  right: 14rem;\n  bottom: 35vh;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  background: rgba(var(--white), 0);\n  border:solid 0px ;\n  height: 6rem;\n  padding: 1em;\n  font-size: 2rem;\n  letter-spacing: 0.2rem;\n  font-weight: bold;\n  overflow: hidden;\n  color: var(--purple);\n  font-family: var(--mincho);\n  word-wrap: break-word;\n  -webkit-writing-mode: initial;\n      -ms-writing-mode: initial;\n          writing-mode: initial;\n}\n\n._3DyUU5HCyzprxXgMy8et1S:focus {\n  outline: none;\n}\n\n._35bWm_o5iOXNRxYCYXT-qM {\n  position: absolute;\n  right: 31.5rem;\n  bottom: 12vh;\n  width: 70px;\n  height: 70px;\n  background: var(--orange);\n  border: 0px;\n  border-radius: 50%;\n  color: white;\n  padding: 0;\n  font-size: 1.8rem;\n  font-weight: bold;\n  font-family: var(--mincho);\n  -webkit-writing-mode: initial;\n      -ms-writing-mode: initial;\n          writing-mode: initial;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n  z-index: auto;\n  cursor: pointer;\n}\n\n._35bWm_o5iOXNRxYCYXT-qM:before {\n  content: '';\n  position: absolute;\n  z-index: -1;\n  height: 1px;\n  width: 70vh;\n  background: var(--purple);\n  bottom: 3.5rem;\n  left: -70vh;\n  pointer-events: none;\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._3DyUU5HCyzprxXgMy8et1S {\n    bottom: 33vh;\n    right: 9rem;\n    font-size: 1.5rem;\n  }\n\n  ._35bWm_o5iOXNRxYCYXT-qM{\n    right: 22rem;\n    bottom: 8vh;\n    width: 55px;\n    height: 55px;\n    border-radius: 55px;\n    font-size: 1.2rem;\n  }\n\n  ._35bWm_o5iOXNRxYCYXT-qM:before {\n    width: 68vh;\n    bottom: 2.75rem;\n    left: -68vh;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._3DyUU5HCyzprxXgMy8et1S {\n    bottom: 32vh;\n    right: 6rem;\n    font-size: 4rem;\n  }\n\n  ._35bWm_o5iOXNRxYCYXT-qM{\n    right: 40rem;\n    bottom: 8vh;\n    width: 150px;\n    height: 150px;\n    border-radius: 150px;\n    font-size: 4rem;\n  }\n\n  ._35bWm_o5iOXNRxYCYXT-qM:before {\n    height: 2px;\n    width: 60vh;\n    bottom: 7.4rem;\n    left: -60vh;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"answerFormWrapper": "_2TtJ59Cez7eF-mtIJ1eIn4",
-	"answerButton": "_35bWm_o5iOXNRxYCYXT-qM",
-	"input": "_3DyUU5HCyzprxXgMy8et1S"
+	"input": "_3DyUU5HCyzprxXgMy8et1S",
+	"answerButton": "_35bWm_o5iOXNRxYCYXT-qM"
 };
 
 /***/ }),
@@ -13651,11 +13707,12 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._3l6tUHbCLjVyxilYRqe0PJ {\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, "._1g87ppJzOx6X9oNkEiMGSh {\n  position: relative;\n  height: 100vh;\n  width: 700px;\n  margin: 0 auto;\n  background: var(--light-blue);\n}\n\n._3BaNCEDgohaLn2U2c3iY78 {\n  /* width: 150px; */\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._1g87ppJzOx6X9oNkEiMGSh {\n    width: 500px;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._1g87ppJzOx6X9oNkEiMGSh {\n    width: 100rem;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"app": "_3l6tUHbCLjVyxilYRqe0PJ"
+	"canyouread": "_1g87ppJzOx6X9oNkEiMGSh",
+	"header": "_3BaNCEDgohaLn2U2c3iY78"
 };
 
 /***/ }),
@@ -13667,11 +13724,10 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, ".tSBzZ2Yrf0q4YQbpLFObi {\n  position: relative;\n  padding-right: 20rem;\n}\n\n._2Ar9Vfp3ME9KyLTCMnTAgi {\n  position: absolute;\n  width: 3rem;\n  height: 3rem;\n  bottom: 6rem;\n  border: 0;\n  border-radius: 50%;\n  margin: calc(100vh - 14rem) calc((14rem - 5rem)/2) auto;\n  padding: 0;\n  font-size: 2rem;\n  background: var(--purple);\n  color: var(--white);\n  cursor: pointer;\n}\n\n._15jVwc6GcFTX8rRcxNr0e5 {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: absolute;\n  width: 12rem;\n  bottom: 0;\n  left: 0;\n  background: var(--purple);\n  color: var(--white);\n  font-size: 1.8rem;\n}\n\n._1qKFPdNujc0ItqTixPsb5A {\n  padding: 5rem;\n}\n\n.ROstaObZvdXNRAfEF2NSi {\n  position: relative;\n  border: 0;\n  padding-bottom: 9rem;\n  background: transparent;\n  font-family: var(--mincho);\n  color: var(--white);\n  cursor: pointer;\n}\n\n.ROstaObZvdXNRAfEF2NSi:before {\n  content: '';\n  display: block;\n  position: absolute;\n  border-top: 10px solid var(--white);\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  bottom: 7rem;\n  right: calc(50% - 10px);\n  cursor: pointer;\n}\n\n.ROstaObZvdXNRAfEF2NSi:after {\n  content: '';\n  display: block;\n  position: absolute;\n  border-top: 10px solid var(--purple);\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  bottom: calc(7rem + 3px);\n  right: calc(50% - 10px);\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "._2Ar9Vfp3ME9KyLTCMnTAgi {\n  position: absolute;\n  right: 56rem;\n  bottom: 14vh;\n  width: 30px;\n  height: 30px;\n  background: var(--light-purple);\n  border: 0px;\n  border-radius: 30px;\n  color: var(--white);\n  padding: 0;\n  cursor: pointer;\n}\n\n._2Ar9Vfp3ME9KyLTCMnTAgi:after {\n  content: '\\30D2\\30F3\\30C8\\3092\\8868\\793A';\n  color: var(--purple);\n  font-size: 12px;\n  position: absolute;\n  right: 0rem;\n  bottom: 4vh;\n  display: none;\n}\n\n._2Ar9Vfp3ME9KyLTCMnTAgi:hover:after {\n  display: block;\n}\n\n._15jVwc6GcFTX8rRcxNr0e5 {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: absolute;\n  width: 12rem;\n  bottom: 0;\n  left: 0;\n  background: var(--purple);\n  color: var(--white);\n  font-size: 1.8rem;\n}\n\n._1qKFPdNujc0ItqTixPsb5A {\n  padding: 6vh 5rem 7vh;\n}\n\n.ROstaObZvdXNRAfEF2NSi {\n  position: relative;\n  border: 0;\n  padding-bottom: 10vh;\n  background: transparent;\n  font-family: var(--mincho);\n  color: var(--light-purple);\n  cursor: pointer;\n}\n\n.ROstaObZvdXNRAfEF2NSi:before {\n  content: '';\n  display: block;\n  position: absolute;\n  border-top: 10px solid var(--light-purple);\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  bottom: 8vh;\n  right: calc(50% - 10px);\n  cursor: pointer;\n}\n\n.ROstaObZvdXNRAfEF2NSi:after {\n  content: '';\n  display: block;\n  position: absolute;\n  border-top: 10px solid var(--purple);\n  border-left: 10px solid transparent;\n  border-right: 10px solid transparent;\n  bottom: calc(8vh + 3px);\n  right: calc(50% - 10px);\n  cursor: pointer;\n}\n\n.ROstaObZvdXNRAfEF2NSi:hover {\n  color: var(--white);\n}\n\n.ROstaObZvdXNRAfEF2NSi:hover:before {\n  border-top: 10px solid var(--white);\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._2Ar9Vfp3ME9KyLTCMnTAgi {\n    right: 40rem;\n    bottom: 10vh;\n    width: 23px;\n    height: 23px;\n    border-radius: 23px;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._2Ar9Vfp3ME9KyLTCMnTAgi{\n    right: 76rem;\n    bottom: 10vh;\n    width: 80px;\n    height: 80px;\n    border-radius: 50%;\n    font-size: 3rem;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"hintWrapper": "tSBzZ2Yrf0q4YQbpLFObi",
 	"hintButton": "_2Ar9Vfp3ME9KyLTCMnTAgi",
 	"hint": "_15jVwc6GcFTX8rRcxNr0e5",
 	"message": "_1qKFPdNujc0ItqTixPsb5A",
@@ -13687,7 +13743,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._3AGkaYlKV5Y1NobSQAAiGY {\n  margin-top: 12rem;\n  font-size: 3rem;\n  color: var(--blue);\n}\n", ""]);
+exports.push([module.i, "._3AGkaYlKV5Y1NobSQAAiGY {\n  margin-top: 15rem;\n  padding: 0 2.5rem;\n  font-size: 2.8rem;\n  letter-spacing: 0.2rem;\n  color: var(--blue);\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._3AGkaYlKV5Y1NobSQAAiGY {\n    margin-top: 15vh;\n    padding: 0 2.5rem;\n    font-size: 2.3rem;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._3AGkaYlKV5Y1NobSQAAiGY {\n    margin-top: 15vh;\n    padding: 0 20rem;\n    font-size: 4.5rem;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -13703,7 +13759,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._2doe-U-lYIAo58RfBoecOl {\n  margin: 15rem 26rem auto auto;\n}\n\n._3LB1IisH4FHk622DVxZKTr {\n  margin-bottom: 3rem;\n  letter-spacing: 0.5rem;\n  font-weight: bold;\n  font-size: 2rem;\n  color: var(--purple);\n}\n\n._39T1q7r1MZZPaUGca1xtaK {\n  letter-spacing: 1rem;\n  font-weight: bold;\n  font-size: 7rem;\n  color: var(--purple);\n}\n", ""]);
+exports.push([module.i, "._2doe-U-lYIAo58RfBoecOl {\n  position: absolute;\n  right: 36.2rem;\n  bottom: 27.5vh;\n}\n\n._3LB1IisH4FHk622DVxZKTr {\n  margin-bottom: 3vh;\n  letter-spacing: 0.5rem;\n  font-weight: bold;\n  font-size: 2.5rem;\n  color: var(--purple);\n}\n\n._39T1q7r1MZZPaUGca1xtaK {\n  letter-spacing: 1rem;\n  font-weight: bold;\n  font-size: 7rem;\n  color: var(--purple);\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._2doe-U-lYIAo58RfBoecOl {\n    right: 25.7rem;\n    bottom: 26vh;\n  }\n\n  ._3LB1IisH4FHk622DVxZKTr {\n    margin-bottom: 2vh;\n    letter-spacing: 0.5rem;\n    font-size: 2rem;\n  }\n\n  ._39T1q7r1MZZPaUGca1xtaK {\n    letter-spacing: 0.5rem;\n    font-size: 5rem;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._2doe-U-lYIAo58RfBoecOl {\n    right: 49.5rem;\n    bottom: 26vh;\n  }\n\n  ._3LB1IisH4FHk622DVxZKTr {\n    margin-bottom: 2vh;\n    letter-spacing: 0.5rem;\n    font-size: 4rem;\n  }\n\n  ._39T1q7r1MZZPaUGca1xtaK {\n    letter-spacing: 1rem;\n    font-size: 10rem;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -13721,7 +13777,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._3DSLfDnWHQ3j0WRFnTwOx8 {\n  display: inline-block;\n}\n\n._2JszHDUj3M1y9qb_EtS0RN {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 2rem auto;\n}\n\n.ixE0n4EdXfLlfxE0BCL9C {\n  margin: 0.8rem 1rem;\n  font-size: 1.8rem;\n  font-weight: bold;\n  color: var(--light-gray);\n}\n\n._3ffEC6VP47Oav7ruhpp50Y {\n  color: var(--blue);\n}\n", ""]);
+exports.push([module.i, "._3DSLfDnWHQ3j0WRFnTwOx8 {\n  display: inline-block;\n  padding-top: 5vh;\n}\n\n._2JszHDUj3M1y9qb_EtS0RN {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 0.7vh auto;\n}\n\n.ixE0n4EdXfLlfxE0BCL9C {\n  margin: 0.7vh 1rem;\n  font-size: 1.8rem;\n  font-weight: bold;\n  color: var(--light-gray);\n}\n\n._3ffEC6VP47Oav7ruhpp50Y {\n  color: var(--blue);\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._3DSLfDnWHQ3j0WRFnTwOx8{\n    padding-top: 0vh;\n    display: inline-block;\n  }\n\n  ._2JszHDUj3M1y9qb_EtS0RN {\n    margin: 3rem auto;\n  }\n\n  .ixE0n4EdXfLlfxE0BCL9C {\n    margin: 0.7vh 1rem;\n    font-size: 1.4rem;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._3DSLfDnWHQ3j0WRFnTwOx8 {\n    display: none;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -13754,7 +13810,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, ".H4QrtKelk95IQTVqaJ8hS {\n  display: inline-block;\n  margin: auto 3rem;\n  padding: 6rem 1.5rem;\n  font-size: 3rem;\n  letter-spacing: 0.3rem;\n  color: var(--white);\n  background: var(--blue);\n}\n", ""]);
+exports.push([module.i, ".H4QrtKelk95IQTVqaJ8hS {\n  display: inline-block;\n  margin: auto 3rem auto 0;\n  padding: 10vh 1.2rem;\n  font-size: 3rem;\n  letter-spacing: 0.3rem;\n  color: var(--white);\n  background: var(--blue);\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  .H4QrtKelk95IQTVqaJ8hS {\n    margin: auto 2rem auto 0rem;\n    padding: 10vh 1rem;\n    font-size: 2.5rem;\n  }\n}\n\n@media (max-device-width: 550px) {\n  .H4QrtKelk95IQTVqaJ8hS {\n    position: absolute;\n    width: 100rem;\n    margin: 0;\n    padding: 2.8vh 0;\n    font-size: 4.5rem;\n    text-align: center;\n    -webkit-writing-mode: horizontal-tb;\n        -ms-writing-mode: lr-tb;\n            writing-mode: horizontal-tb;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -13770,7 +13826,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "html {\n  width: 100%;\n  font-size: 62.5%;\n  -webkit-writing-mode: vertical-rl;\n      -ms-writing-mode: tb-rl;\n          writing-mode: vertical-rl;\n}\n\n*, *::before, *::after {\n  box-sizing: border-box;\n}\n\nbody {\n  width: 100%;\n  background: var(--light-blue);\n  color: var(--gray);\n  font-size: 1.4rem;\n  font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;\n}\n\n#_2oWI3UFj5srrkYku-y02nt {\n  width: 100%;\n}\n\na:link, a:visited, a:hover, a:active {\n  color: var(--gray);\n  text-decoration: none;\n}\n", ""]);
+exports.push([module.i, "html {\n  width: 100%;\n  font-size: 62.5%;\n  -webkit-writing-mode: vertical-rl;\n      -ms-writing-mode: tb-rl;\n          writing-mode: vertical-rl;\n}\n\n*, *::before, *::after {\n  box-sizing: border-box;\n}\n\nbody,\n#_2oWI3UFj5srrkYku-y02nt {\n  width: 100%;\n  font-family: var(--mincho);\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\na:link, a:visited, a:hover, a:active {\n  color: var(--gray);\n  text-decoration: none;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -29049,8 +29105,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const logger = __WEBPACK_IMPORTED_MODULE_3_redux_logger___default()();
 const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_redux__["a" /* createStore */])(__WEBPACK_IMPORTED_MODULE_8__reducers__["a" /* default */], __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_redux__["b" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a, __WEBPACK_IMPORTED_MODULE_2_redux_promise___default.a, logger));
 
-store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__actions__["a" /* setQuizCount */])(10));
-store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__actions__["b" /* fetchQuizzes */])(store.getState().quizCount));
+store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__actions__["a" /* initialize */])(10));
 
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   __WEBPACK_IMPORTED_MODULE_5_react_redux__["a" /* Provider */],
