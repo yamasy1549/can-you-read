@@ -14,3 +14,25 @@ export const levelToJapanese = (level) => {
       return 'ふつう'
   }
 }
+
+export const resultsToJapanese = (correct, quizCount) => {
+  switch (Math.round(correct*10/quizCount)) {
+    case 1:
+      return 'がんばって'
+    case 2:
+    case 3:
+    case 4:
+      return 'う〜ん'
+    case 5:
+    case 6:
+      return 'すごい'
+    case 7:
+    case 8:
+    case 9:
+      return 'すばらしい'
+    case 10:
+      return 'かんぺき'
+    default:
+      return 'う〜ん'
+  }
+}

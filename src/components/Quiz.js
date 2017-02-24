@@ -49,6 +49,7 @@ const Quiz = ({
               if(Object.keys(results).length) {
                 return (
                   <Result
+                    quizCount={quizCount}
                     {...results}
                   />
                 )
