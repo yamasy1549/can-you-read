@@ -8,7 +8,7 @@ import Result               from '../components/Result'
 
 const Quiz = ({
   quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
-  onHintClick, onNextClick, onAnswerClick, onResultClick
+  onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick
 }) => (
   <main>
     {(() => {
@@ -26,7 +26,7 @@ const Quiz = ({
               {...quiz}
               openHint={openHint}
               onHintClick={() => onHintClick(openHint)}
-              onNextClick={() => onNextClick(currentQuiz, quizCount)}
+              onPassClick={() => onPassClick(openAnswer)}
             />
             <AnswerForm
               onAnswerClick={() => onAnswerClick(openAnswer, quiz.kana, currentQuiz)}

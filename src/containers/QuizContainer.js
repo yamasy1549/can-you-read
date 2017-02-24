@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     onHintClick: (openHint) => {
       dispatch(toggleHint(openHint))
     },
+    onPassClick: (openAnswer) => {
+      dispatch(toggleAnswer(openAnswer))
+    },
     onAnswerClick: (openAnswer, answer, currentQuiz) => {
       const input = document.getElementById('answer').value
       if(input.length) {

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { toJapanese }       from 'jp-num'
 import styles               from './Hint.css'
 
-const Hint = ({ hint, kana, openHint, onHintClick, onNextClick }) => (
+const Hint = ({ hint, kana, openHint, onHintClick, onPassClick }) => (
   <div className={styles.hintWrapper}>
     <button onClick={onHintClick} className={styles.hintButton}>
       ？
@@ -12,7 +12,7 @@ const Hint = ({ hint, kana, openHint, onHintClick, onNextClick }) => (
         return (
           <div className={styles.hint}>
             <p className={styles.message}>{toJapanese(String(hint))}文字目は「{kana[hint-1]}」</p>
-            <button onClick={onNextClick} className={styles.passButton}>
+            <button onClick={onPassClick} className={styles.passButton}>
               この問題をパス
             </button>
           </div>
@@ -27,7 +27,7 @@ Hint.propTypes = {
   kana:        PropTypes.string.isRequired,
   openHint:    PropTypes.bool.isRequired,
   onHintClick: PropTypes.func.isRequired,
-  onNextClick: PropTypes.func.isRequired
+  onPassClick: PropTypes.func.isRequired
 }
 
 export default Hint
