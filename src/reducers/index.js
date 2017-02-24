@@ -4,14 +4,12 @@ import currentQuiz         from './currentQuiz'
 import openHint            from './openHint'
 import openAnswer          from './openAnswer'
 import quizCount           from './quizCount'
-import correct             from './correct'
 
 const quizApp = combineReducers({
     quizzes,
     currentQuiz,
     openHint,
     openAnswer,
-    quizCount,
-    correct
+    quizCount
 })
 export default quizApp

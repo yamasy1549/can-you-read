@@ -9,10 +9,10 @@ const zoom = '8'
 const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`
 console.log(mapURL)
 
-const Answer = ({ prefecture, kanji, kana, description, correct, onNextClick }) => (
+const Answer = ({ prefecture, kanji, kana, description, correctAnswer, onNextClick }) => (
   <div className={styles.answerWrapper}>
     <p>
-      {correct ? '正解' : '不正解'}！
+      {correctAnswer ? '正解' : '不正解'}！
       {kana}
       <br />
       解説: {description}

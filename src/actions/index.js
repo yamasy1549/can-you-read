@@ -49,7 +49,7 @@ export const fetchQuizzes = () => {
 }
 
 export const gotoNextQuiz = () => {
-  currentQuiz = (quizCount < currentQuiz+1) ? quizCount : ++currentQuiz
+  const currentQuiz = (quizCount < currentQuiz+1) ? quizCount : ++currentQuiz
   return {
     type: 'GOTO_NEXT_QUIZ',
     currentQuiz
@@ -57,7 +57,7 @@ export const gotoNextQuiz = () => {
 }
 
 export const gotoPrevQuiz = () => {
-  currentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
+  const currentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
   return {
     type: 'GOTO_PREV_QUIZ',
     currentQuiz
@@ -78,9 +78,17 @@ export const toggleAnswer = (openAnswer) => {
   }
 }
 
-export const checkAnswer = (input, answer) => {
-  return {
-    type: 'CHECK_ANSWER',
-    correct: (input === answer) ? true : false
+export const checkAnswer = (input, answer, currentQuiz) => {
+  const correctAnswer = (input === answer) ? true : false
+  if(correctAnswer) {
+    return {
+      type: 'BE_CORRECT_ANSWER',
+      currentQuiz
+    }
+  } else {
+    return {
+      type: 'BE_INCORRECT_ANSWER',
+      currentQuiz
+    }
   }
 }

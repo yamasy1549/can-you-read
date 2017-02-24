@@ -14,8 +14,7 @@ const mapStateToProps = (state) => {
     quizCount:   state.quizCount,
     currentQuiz: state.currentQuiz,
     openHint:    state.openHint,
-    openAnswer:  state.openAnswer,
-    correct:     state.correct
+    openAnswer:  state.openAnswer
   }
 }
 
@@ -30,11 +29,11 @@ const mapDispatchToProps = (dispatch) => {
       document.getElementById('answer').value = ''
 
     },
-    onAnswerClick: (openAnswer, answer) => {
+    onAnswerClick: (openAnswer, answer, currentQuiz) => {
       const input = document.getElementById('answer').value
       if(input.length) {
         dispatch(toggleAnswer(openAnswer))
-        dispatch(checkAnswer(input, answer))
+        dispatch(checkAnswer(input, answer, currentQuiz))
       }
     }
   }
