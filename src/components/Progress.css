@@ -1,14 +1,15 @@
 .nav {
   display: inline-block;
+  padding-top: 5vh;
 }
 
 .progresses {
   display: flex;
-  margin: 2rem auto;
+  margin: 0.7vh auto;
 }
 
 .progress {
-  margin: 0.8rem 1rem;
+  margin: 0.7vh 1rem;
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--light-gray);
@@ -16,4 +17,26 @@
 
 .done {
   color: var(--blue);
+}
+
+@media (max-height: 800px), (max-width: 1000px) {
+  .nav{
+    padding-top: 0vh;
+    display: inline-block;
+  }
+
+  .progresses {
+    margin: 3rem auto;
+  }
+
+  .progress {
+    margin: 0.7vh 1rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-device-width: 550px) {
+  .nav {
+    display: none;
+  }
 }

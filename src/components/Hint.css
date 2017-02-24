@@ -1,21 +1,29 @@
-.hintWrapper {
-  position: relative;
-  padding-right: 20rem;
-}
-
 .hintButton {
   position: absolute;
-  width: 3rem;
-  height: 3rem;
-  bottom: 6rem;
-  border: 0;
-  border-radius: 50%;
-  margin: calc(100vh - 14rem) calc((14rem - 5rem)/2) auto;
-  padding: 0;
-  font-size: 2rem;
-  background: var(--purple);
+  right: 56rem;
+  bottom: 14vh;
+  width: 30px;
+  height: 30px;
+  background: var(--light-purple);
+  border: 0px;
+  border-radius: 30px;
   color: var(--white);
+  padding: 0;
   cursor: pointer;
+}
+
+.hintButton:after {
+  content: 'ヒントを表示';
+  color: var(--purple);
+  font-size: 12px;
+  position: absolute;
+  right: 0rem;
+  bottom: 4vh;
+  display: none;
+}
+
+.hintButton:hover:after {
+  display: block;
 }
 
 .hint {
@@ -30,16 +38,16 @@
 }
 
 .message {
-  padding: 5rem;
+  padding: 6vh 5rem 7vh;
 }
 
 .passButton {
   position: relative;
   border: 0;
-  padding-bottom: 9rem;
+  padding-bottom: 10vh;
   background: transparent;
   font-family: var(--mincho);
-  color: var(--white);
+  color: var(--light-purple);
   cursor: pointer;
 }
 
@@ -47,10 +55,10 @@
   content: '';
   display: block;
   position: absolute;
-  border-top: 10px solid var(--white);
+  border-top: 10px solid var(--light-purple);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  bottom: 7rem;
+  bottom: 8vh;
   right: calc(50% - 10px);
   cursor: pointer;
 }
@@ -62,7 +70,36 @@
   border-top: 10px solid var(--purple);
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  bottom: calc(7rem + 3px);
+  bottom: calc(8vh + 3px);
   right: calc(50% - 10px);
   cursor: pointer;
+}
+
+.passButton:hover {
+  color: var(--white);
+}
+
+.passButton:hover:before {
+  border-top: 10px solid var(--white);
+}
+
+@media (max-height: 800px), (max-width: 1000px) {
+  .hintButton {
+    right: 40rem;
+    bottom: 10vh;
+    width: 23px;
+    height: 23px;
+    border-radius: 23px;
+  }
+}
+
+@media (max-device-width: 550px) {
+  .hintButton{
+    right: 76rem;
+    bottom: 10vh;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 3rem;
+  }
 }

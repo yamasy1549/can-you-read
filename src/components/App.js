@@ -8,9 +8,11 @@ import base              from './base.css'
 import styles            from './App.css'
 
 const App = () => (
-  <div className={styles.app}>
-    <Title />
-    <ProgressContainer />
+  <div className={styles.canyouread}>
+    <header className={styles.header}>
+      <Title />
+      <ProgressContainer />
+    </header>
     <QuizContainer />
   </div>
 )

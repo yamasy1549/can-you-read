@@ -1,5 +1,23 @@
 .level {
-  margin-top: 12rem;
-  font-size: 3rem;
+  margin-top: 15rem;
+  padding: 0 2.5rem;
+  font-size: 2.8rem;
+  letter-spacing: 0.2rem;
   color: var(--blue);
+}
+
+@media (max-height: 800px), (max-width: 1000px) {
+  .level {
+    margin-top: 15vh;
+    padding: 0 2.5rem;
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-device-width: 550px) {
+  .level {
+    margin-top: 15vh;
+    padding: 0 20rem;
+    font-size: 4.5rem;
+  }
 }
