@@ -3,6 +3,8 @@ html {
   font-size: 62.5%;
   writing-mode: vertical-rl;
   background: var(--light-blue);
+  background: url('../images/waves.png');
+  background-size: calc(587px / 6) calc(294px / 6);
 }
 
 *, *::before, *::after {
