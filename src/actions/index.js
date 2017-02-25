@@ -21,6 +21,12 @@ export const setQuizCount = (quizCount) => {
   }
 }
 
+export const startToPlay = () => {
+  return {
+    type: 'START_TO_PLAY'
+  }
+}
+
 export const startFetchQuizzes = () => {
   return {
     type: 'FETCH_QUIZZES_START'

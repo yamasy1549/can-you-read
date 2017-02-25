@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import Map                  from '../components/Map'
 import Header               from '../components/Header'
 import Level                from '../components/Level'
 import PlaceName            from '../components/PlaceName'
@@ -9,15 +8,14 @@ import Answer               from '../components/Answer'
 import Result               from '../components/Result'
 
 const Quiz = ({
-  quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
+  playing, quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
   onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick, onReplayClick
 }) => (
   <div>
     {(() => {
-      if(quiz) {
+      if(playing) {
         return (
           <div>
-            <Map />
             <Header />
             <main>
               <Level

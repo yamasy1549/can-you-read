@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import ready               from './ready'
+import playing             from './playing'
 import quizzes             from './quizzes'
 import currentQuiz         from './currentQuiz'
 import openHint            from './openHint'
@@ -7,6 +9,8 @@ import quizCount           from './quizCount'
 import results             from './results'
 
 const quizApp = combineReducers({
+    ready,
+    playing,
     quizzes,
     currentQuiz,
     openHint,

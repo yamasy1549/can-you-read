@@ -11,6 +11,7 @@ import {
 
 const mapStateToProps = (state) => {
   return {
+    playing:     state.playing,
     quizzes:     state.quizzes,
     quiz:        state.quizzes[state.currentQuiz-1],
     quizCount:   state.quizCount,

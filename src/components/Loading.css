@@ -1,11 +1,13 @@
 .loadingWrapper {
   position: fixed;
-  background: white;
+  background: transparent;
   width: 100vw;
   height: 100vh;
   z-index: 1000;
   top: 0;
   right: 0;
+  display: flex;
+  align-items: center;
 }
 
 .loading {
@@ -14,4 +16,33 @@
   justify-content: center;
   align-items: center;
   background: var(--light-blue);
+}
+
+.title {
+  font-size: 5.5rem;
+  letter-spacing: 0.5rem;
+  color: var(--blue);
+  margin-top: 10vh;
+  font-weight: normal;
+}
+
+.startButton {
+  position: absolute;
+  transform: rotate(90deg);
+  bottom: 9vh;
+  right: calc(50% - 35px);
+  width: 70px;
+  height: 70px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 0;
+  color: var(--white);
+  font-size: 1.8rem;
+  font-family: var(--mincho);
+  text-align: center;
+  line-height: 6.8rem;
+  z-index: auto;
+  cursor: pointer;
+  writing-mode: initial;
+  margin-right: -12px;
 }
