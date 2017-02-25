@@ -11,11 +11,16 @@
 }
 
 .loading {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: var(--light-blue);
+}
+
+.loadingIcon {
+  width: 5rem;
 }
 
 .title {
