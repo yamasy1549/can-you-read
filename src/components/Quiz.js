@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Map                  from '../components/Map'
 import Header               from '../components/Header'
 import Level                from '../components/Level'
 import PlaceName            from '../components/PlaceName'
@@ -16,6 +17,7 @@ const Quiz = ({
       if(quiz) {
         return (
           <div>
+            <Map />
             <Header />
             <main>
               <Level
