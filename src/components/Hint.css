@@ -1,6 +1,6 @@
 .hintButton {
   position: absolute;
-  right: 56rem;
+  left: 7.5rem;
   bottom: 14vh;
   width: 30px;
   height: 30px;
@@ -31,7 +31,7 @@
   position: absolute;
   width: 12rem;
   bottom: 0;
-  left: 0;
+  left: 3rem;
   background: var(--purple);
   color: var(--white);
   font-size: 1.8rem;
@@ -84,22 +84,43 @@
 }
 
 @media (max-height: 800px), (max-width: 1000px) {
-  .hintButton {
-    right: 40rem;
+  .hintButton{
+    left: 6.8rem;
     bottom: 10vh;
     width: 23px;
     height: 23px;
     border-radius: 23px;
   }
+
+  .hint {
+    width: 11rem;
+    bottom: 0;
+    left: 2rem;
+    font-size: 1.6rem;
+  }
+
+  .message {
+    padding: 6vh 4.7rem 7vh;
+  }
 }
 
 @media (max-device-width: 550px) {
-  .hintButton{
+  .hintButton {
     right: 76rem;
     bottom: 10vh;
     width: 80px;
     height: 80px;
     border-radius: 50%;
     font-size: 3rem;
+  }
+
+  .hint {
+    width: 25rem;
+    left: 0;
+    font-size: 4rem;
+  }
+
+  .message {
+    padding: 15vh 10.4rem 10vh;
   }
 }
