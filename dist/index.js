@@ -3540,6 +3540,17 @@ module.exports = emptyObject;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(180);
+
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -3820,7 +3831,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3836,7 +3847,7 @@ module.exports = EventPluginHub;
 
 
 
-var EventPluginHub = __webpack_require__(26);
+var EventPluginHub = __webpack_require__(27);
 var EventPluginUtils = __webpack_require__(43);
 
 var accumulateInto = __webpack_require__(88);
@@ -3960,7 +3971,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4013,7 +4024,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4075,17 +4086,6 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(180);
-
-
 
 /***/ }),
 /* 31 */
@@ -4698,7 +4698,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
-var SyntheticUIEvent = __webpack_require__(29);
+var SyntheticUIEvent = __webpack_require__(30);
 var ViewportMetrics = __webpack_require__(87);
 
 var getEventModifierState = __webpack_require__(51);
@@ -6350,7 +6350,7 @@ module.exports = ReactErrorUtils;
 var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(15);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
 var ReactUpdates = __webpack_require__(14);
 
@@ -9560,7 +9560,7 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(209);
 var ReactDOMFeatureFlags = __webpack_require__(211);
 var ReactFeatureFlags = __webpack_require__(81);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
 var ReactMarkupChecksum = __webpack_require__(231);
 var ReactReconciler = __webpack_require__(22);
@@ -13011,43 +13011,75 @@ module.exports = function spread(callback) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Answer_css__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Answer_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Answer_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jp_num__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jp_num___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jp_num__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Answer_css__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Answer_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__Answer_css__);
+
 
 
 
 
 const key = 'AIzaSyDDRFpo9sNZXwfRgmX4454_IJNubuuKFDQ';
 const size = '450x800';
-const scale = '2';
+const scale = '4';
 const zoom = '8';
 const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`;
 console.log(mapURL);
 
 const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, results, onNextClick, onResultClick }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   'div',
-  { className: __WEBPACK_IMPORTED_MODULE_2__Answer_css___default.a.answerWrapper },
+  { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.answerWrapper },
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'p',
-    null,
-    correctAnswer ? '正解' : '不正解',
-    '\uFF01',
-    kana,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-    '\u89E3\u8AAC: ',
-    description,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mapURL + prefecture + kanji, alt: kanji, className: __WEBPACK_IMPORTED_MODULE_2__Answer_css___default.a.map }),
+    'div',
+    { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.answer },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'span',
+      { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.judgment },
+      correctAnswer ? '正解' : '不正解'
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.placeNameWrapper },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'span',
+        { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.currentQuiz },
+        '\u7B2C',
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_jp_num__["toJapanese"])(String(currentQuiz)),
+        '\u554F'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.placeName },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'span',
+          { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.kanji },
+          kanji
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'span',
+          { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.kana },
+          kana
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'p',
+        { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.description },
+        description
+      )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: mapURL + prefecture + kanji, alt: kanji, className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.map }),
     (() => {
       if (currentQuiz == quizCount) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'button',
-          { onClick: onResultClick },
+          { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.nextButton, onClick: onResultClick },
           '\u7D50\u679C'
         );
       } else {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'button',
-          { onClick: onNextClick },
+          { className: __WEBPACK_IMPORTED_MODULE_3__Answer_css___default.a.nextButton, onClick: onNextClick },
           '\u6B21\u3078'
         );
       }
@@ -13106,7 +13138,7 @@ AnswerForm.propTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jp_num__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Hint_css__ = __webpack_require__(293);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Hint_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Hint_css__);
@@ -13162,7 +13194,7 @@ Hint.propTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jp_num__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Level_css__ = __webpack_require__(294);
@@ -13230,7 +13262,7 @@ PlaceName.propTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jp_num__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Progress_css__ = __webpack_require__(296);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Progress_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__Progress_css__);
@@ -13346,7 +13378,7 @@ Quiz.propTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jp_num___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jp_num__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__functions__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Result_css__ = __webpack_require__(297);
@@ -13673,12 +13705,21 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, "._3Ovc2oLrH8uQmuCvE1pf5Y {\n  position: relative;\n}\n\n._3AtSMaSeNoHZFalGKF_LTo {\n  width: 450px;\n}\n", ""]);
+exports.push([module.i, "._3Ovc2oLrH8uQmuCvE1pf5Y {\n  position: fixed;\n  width: 100vw;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  left: 0;\n}\n\n._2JEG3a6BeCGwo5vXnmZib7 {\n  position: absolute;\n  background: var(--pink);\n  margin: auto;\n  right: 10%;\n  width: 80%;\n  height: 95vh;\n  bottom: 3vh;\n  border-radius: 40px;\n}\n\n._1SjyDQtKatQYn3EZXmNWt4 {\n  position: absolute;\n  top: calc(40% - 8.5rem);\n  right: calc(50% - 8.5rem);\n  color: var(--white);\n  font-size: 5rem;\n  border: 2px solid var(--white);\n  border-radius: 50%;\n  width: 17rem;\n  height: 17rem;\n  text-align: center;\n  line-height: calc(17rem - 1px);\n}\n\n.TvtqLTf1Fjlpj3kcRxTOK {\n  margin-top: 20vh;\n  margin-right: 20%;\n  width: 20%;\n  height: 60vh;\n}\n\n._37BFYLt2dRmVxPbA8Ohisl {\n  color: var(--white);\n  font-size: 3rem;\n}\n\n._1LG9f-2jndK1PNKeqwLPt0 {\n  width: calc(3rem + 12%);\n  height: 100%;\n  margin-right: 10%;\n}\n\n.fXsFEqtMgD8nznjTxdXaJ {\n  padding: 10% 0;\n  color: var(--white);\n  font-size: 3rem;\n}\n\n._38lCDY3EgsVbXuwod4Pqvh {\n  color: var(--white);\n  font-size: 2rem;\n}\n\n._3QXgTQ3dPvR32cMibcXzBu {\n  color: var(--white);\n  font-size: 1.8rem;\n  padding-top: 20vh;\n}\n\n._3AtSMaSeNoHZFalGKF_LTo {\n  position: absolute;\n  top: 20vh;\n  right: 65%;\n  width: 30%;\n}\n\n._3Wqh4bwwQ2x66RaUSWwpVy {\n  position: absolute;\n  bottom: 9vh;\n  right: calc(50% - 35px);\n  width: 70px;\n  height: 70px;\n  background: var(--white);\n  border-radius: 50%;\n  border: 0;\n  color: var(--pink);\n  font-size: 1.8rem;\n  font-weight: bold;\n  font-family: var(--mincho);\n  text-align: center;\n  line-height: 6.8rem;\n  z-index: auto;\n  cursor: pointer;\n}\n\n@media (max-height: 800px), (max-width: 1000px) {\n  ._2JEG3a6BeCGwo5vXnmZib7 {\n    right: 5%;\n    width: 90%;\n  }\n\n  ._1SjyDQtKatQYn3EZXmNWt4 {\n    top: calc(40% - 7.5rem);\n    right: calc(50% - 7.5rem);\n    font-size: 4rem;\n    width: 15rem;\n    height: 15rem;\n    line-height: calc(15rem - 1px);\n  }\n\n  .TvtqLTf1Fjlpj3kcRxTOK {\n    margin-right: 15%;\n  }\n\n  ._3Wqh4bwwQ2x66RaUSWwpVy {\n    bottom: 5vh;\n    right: calc(50% - 30px);\n    width: 55px;\n    height: 55px;\n    font-size: 1.5rem;\n    line-height: 5.3rem;\n  }\n}\n\n@media (max-device-width: 550px) {\n  ._2JEG3a6BeCGwo5vXnmZib7 {\n    right: 5%;\n    width: 90%;\n    height: 85vh;\n    bottom: 4vh;\n  }\n\n  ._1SjyDQtKatQYn3EZXmNWt4 {\n    top: calc(20% - 12rem);\n    right: calc(50% - 12rem);\n    font-size: 6.5rem;\n    border: 3px solid var(--white);\n    width: 24rem;\n    height: 24rem;\n    line-height: calc(24rem - 1px);\n  }\n\n  .TvtqLTf1Fjlpj3kcRxTOK {\n    margin-top: 27vh;\n    margin-right: 20%;\n    width: 30%;\n    height: 42vh;\n  }\n\n  ._3Wqh4bwwQ2x66RaUSWwpVy {\n    position: absolute;\n    bottom: 9vh;\n    right: calc(50% - 35px);\n    width: 70px;\n    height: 70px;\n    background: var(--white);\n    border-radius: 50%;\n    color: var(--pink);\n    font-size: 1.8rem;\n    font-weight: bold;\n    font-family: var(--mincho);\n    text-align: center;\n    line-height: 6.8rem;\n    z-index: auto;\n  }\n}\n", ""]);
 
 // exports
 exports.locals = {
 	"answerWrapper": "_3Ovc2oLrH8uQmuCvE1pf5Y",
-	"map": "_3AtSMaSeNoHZFalGKF_LTo"
+	"answer": "_2JEG3a6BeCGwo5vXnmZib7",
+	"judgment": "_1SjyDQtKatQYn3EZXmNWt4",
+	"placeNameWrapper": "TvtqLTf1Fjlpj3kcRxTOK",
+	"currentQuiz": "_37BFYLt2dRmVxPbA8Ohisl",
+	"placeName": "_1LG9f-2jndK1PNKeqwLPt0",
+	"kanji": "fXsFEqtMgD8nznjTxdXaJ",
+	"kana": "_38lCDY3EgsVbXuwod4Pqvh",
+	"description": "_3QXgTQ3dPvR32cMibcXzBu",
+	"map": "_3AtSMaSeNoHZFalGKF_LTo",
+	"nextButton": "_3Wqh4bwwQ2x66RaUSWwpVy"
 };
 
 /***/ }),
@@ -13856,7 +13897,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, ":root {\n  --white:        #FFFFFF;\n  --light-purple: #927F9A;\n  --purple:       #715A7F;\n  --blue:         #395E7C;\n  --light-blue:   #FAFDFF;\n  --gray:         #666666;\n  --light-gray:   #CCCCCC;\n  --green:        #72B29B;\n  --light-green:  #E4EFEC;\n  --orange:       #F38139;\n  --pink:         #EF6E7F;\n\n  --mincho:       Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;\n}\n", ""]);
+exports.push([module.i, ":root {\n  --white:        #FFFFFF;\n  --light-purple: #927F9A;\n  --purple:       #715A7F;\n  --blue:         #395E7C;\n  --light-blue:   #FAFDFF;\n  --gray:         #666666;\n  --light-gray:   #CCCCCC;\n  --green:        #72B29B;\n  --light-green:  #E4EFEC;\n  --orange:       #F38139;\n  --pink:         #FA7C7D;\n\n  --mincho:       Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;\n}\n", ""]);
 
 // exports
 
@@ -16274,7 +16315,7 @@ module.exports = AutoFocusUtils;
 
 
 
-var EventPropagators = __webpack_require__(27);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(6);
 var FallbackCompositionState = __webpack_require__(202);
 var SyntheticCompositionEvent = __webpack_require__(245);
@@ -16879,8 +16920,8 @@ module.exports = CSSPropertyOperations;
 
 
 
-var EventPluginHub = __webpack_require__(26);
-var EventPropagators = __webpack_require__(27);
+var EventPluginHub = __webpack_require__(27);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
@@ -17290,7 +17331,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(27);
+var EventPropagators = __webpack_require__(28);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticMouseEvent = __webpack_require__(33);
 
@@ -17914,7 +17955,7 @@ var React = __webpack_require__(23);
 var ReactComponentEnvironment = __webpack_require__(46);
 var ReactCurrentOwner = __webpack_require__(15);
 var ReactErrorUtils = __webpack_require__(47);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
 var ReactNodeTypes = __webpack_require__(85);
 var ReactReconciler = __webpack_require__(22);
@@ -18943,7 +18984,7 @@ var DOMLazyTree = __webpack_require__(21);
 var DOMNamespaces = __webpack_require__(42);
 var DOMProperty = __webpack_require__(17);
 var DOMPropertyOperations = __webpack_require__(77);
-var EventPluginHub = __webpack_require__(26);
+var EventPluginHub = __webpack_require__(27);
 var EventPluginRegistry = __webpack_require__(31);
 var ReactBrowserEventEmitter = __webpack_require__(32);
 var ReactDOMComponentFlags = __webpack_require__(78);
@@ -22036,7 +22077,7 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var EventPluginHub = __webpack_require__(26);
+var EventPluginHub = __webpack_require__(27);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -22274,7 +22315,7 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 var DOMProperty = __webpack_require__(17);
-var EventPluginHub = __webpack_require__(26);
+var EventPluginHub = __webpack_require__(27);
 var EventPluginUtils = __webpack_require__(43);
 var ReactComponentEnvironment = __webpack_require__(46);
 var ReactEmptyComponent = __webpack_require__(80);
@@ -22413,7 +22454,7 @@ module.exports = ReactMarkupChecksum;
 var _prodInvariant = __webpack_require__(3);
 
 var ReactComponentEnvironment = __webpack_require__(46);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(29);
 var ReactInstrumentation = __webpack_require__(11);
 
 var ReactCurrentOwner = __webpack_require__(15);
@@ -23842,7 +23883,7 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(27);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(83);
@@ -24042,7 +24083,7 @@ module.exports = SelectEventPlugin;
 var _prodInvariant = __webpack_require__(3);
 
 var EventListener = __webpack_require__(70);
-var EventPropagators = __webpack_require__(27);
+var EventPropagators = __webpack_require__(28);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(243);
 var SyntheticClipboardEvent = __webpack_require__(244);
@@ -24053,7 +24094,7 @@ var SyntheticMouseEvent = __webpack_require__(33);
 var SyntheticDragEvent = __webpack_require__(246);
 var SyntheticTouchEvent = __webpack_require__(250);
 var SyntheticTransitionEvent = __webpack_require__(251);
-var SyntheticUIEvent = __webpack_require__(29);
+var SyntheticUIEvent = __webpack_require__(30);
 var SyntheticWheelEvent = __webpack_require__(252);
 
 var emptyFunction = __webpack_require__(13);
@@ -24441,7 +24482,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(29);
+var SyntheticUIEvent = __webpack_require__(30);
 
 /**
  * @interface FocusEvent
@@ -24524,7 +24565,7 @@ module.exports = SyntheticInputEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(29);
+var SyntheticUIEvent = __webpack_require__(30);
 
 var getEventCharCode = __webpack_require__(50);
 var getEventKey = __webpack_require__(258);
@@ -24613,7 +24654,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(29);
+var SyntheticUIEvent = __webpack_require__(30);
 
 var getEventModifierState = __webpack_require__(51);
 
@@ -24997,7 +25038,7 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(15);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(29);
 
 var getHostComponentFromComposite = __webpack_require__(90);
 var invariant = __webpack_require__(1);
