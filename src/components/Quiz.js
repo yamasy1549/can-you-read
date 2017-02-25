@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import Header               from '../components/Header'
 import Level                from '../components/Level'
 import PlaceName            from '../components/PlaceName'
 import Hint                 from '../components/Hint'
@@ -10,57 +11,60 @@ const Quiz = ({
   quizzes, quiz, quizCount, currentQuiz, openHint, openAnswer, results,
   onHintClick, onPassClick, onAnswerClick, onNextClick, onResultClick, onReplayClick
 }) => (
-  <main>
+  <div>
     {(() => {
       if(quiz) {
         return (
           <div>
-            <Level
-              {...quiz}
-              currentQuiz={currentQuiz}
-            />
-            <PlaceName
-              {...quiz}
-            />
-            <Hint
-              {...quiz}
-              openHint={openHint}
-              onHintClick={() => onHintClick(openHint)}
-              onPassClick={() => onPassClick(openAnswer)}
-            />
-            <AnswerForm
-              onAnswerClick={() => onAnswerClick(openAnswer, quiz.kana, currentQuiz)}
-            />
-            {(() => {
-              if(openAnswer) {
-                return (
-                  <Answer
-                    {...quiz}
-                    quizCount={quizCount}
-                    currentQuiz={currentQuiz}
-                    results={results}
-                    onNextClick={() => onNextClick(currentQuiz, quizCount)}
-                    onResultClick={() => onResultClick(quizzes)}
-                  />
-                )
-              }
-            })()}
-            {(() => {
-              if(Object.keys(results).length) {
-                return (
-                  <Result
-                    quizCount={quizCount}
-                    onReplayClick={() => onReplayClick(quizCount)}
-                    {...results}
-                  />
-                )
-              }
-            })()}
+            <Header />
+            <main>
+              <Level
+                {...quiz}
+                currentQuiz={currentQuiz}
+              />
+              <PlaceName
+                {...quiz}
+              />
+              <Hint
+                {...quiz}
+                openHint={openHint}
+                onHintClick={() => onHintClick(openHint)}
+                onPassClick={() => onPassClick(openAnswer)}
+              />
+              <AnswerForm
+                onAnswerClick={() => onAnswerClick(openAnswer, quiz.kana, currentQuiz)}
+              />
+              {(() => {
+                if(openAnswer) {
+                  return (
+                    <Answer
+                      {...quiz}
+                      quizCount={quizCount}
+                      currentQuiz={currentQuiz}
+                      results={results}
+                      onNextClick={() => onNextClick(currentQuiz, quizCount)}
+                      onResultClick={() => onResultClick(quizzes)}
+                    />
+                  )
+                }
+              })()}
+              {(() => {
+                if(Object.keys(results).length) {
+                  return (
+                    <Result
+                      quizCount={quizCount}
+                      onReplayClick={() => onReplayClick(quizCount)}
+                      {...results}
+                    />
+                  )
+                }
+              })()}
+            </main>
           </div>
-        )
+         )
       }
     })()}
-  </main>
+  </div>
 )
 
 Quiz.propTypes = {
