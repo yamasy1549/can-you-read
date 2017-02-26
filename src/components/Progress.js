@@ -10,7 +10,7 @@ const Progress = ({ currentQuiz, quizCount }) => (
   <nav className={styles.nav}>
     <ol className={styles.progresses}>
       {[...Array(quizCount).keys()].map((i) =>
-        <li key={i} className={progress(currentQuiz, i)}>
+        <li key={i} className={progress(currentQuiz, i)} style={{ animationDelay: `${i*0.05}s` }}>
           {toJapanese(String(i+1))}
         </li>
       )}

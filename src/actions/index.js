@@ -154,8 +154,9 @@ export const tallyAnswers = (quizzes) => {
 }
 
 export const animStartToPlay = () => {
-  const duration = 2730
+  const duration = 1730
   const button = document.getElementById('animStart_Button')
+  const buttonWave = document.getElementById('animStart_ButtonWave')
   const buttonText = document.getElementById('animStart_ButtonText')
 
   button.animate([
@@ -174,6 +175,28 @@ export const animStartToPlay = () => {
     easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
   })
 
+  buttonWave.animate([
+    {
+      width: '70px',
+      height: '70px',
+      right: 'calc(50% - 35px)',
+      top: 'calc(50% - 35px)',
+      border: '#EC3F33 5px solid', // var(--red)
+      opacity: '1'
+    },
+    {
+      width: '230px',
+      height: '230px',
+      right: 'calc(50% - 115px)',
+      top: 'calc(50% - 115px)',
+      border: '#F38139 0px solid', // var(--orange)
+      opacity: '0'
+    }
+  ], {
+    duration: duration,
+    easing: 'cubic-bezier(0.19, 1, 0.22, 1)' // var(--ease-out-expo)
+  })
+
   buttonText.animate([
     {
       opacity: '1',
@@ -189,8 +212,8 @@ export const animStartToPlay = () => {
   })
 
   return (dispatch) => {
-    setTimeout((duration) => {
+    setTimeout(() => {
       dispatch(startToPlay())
-    }, duration)
+    }, duration-500) // TODO: アニメーションががたつく
   }
 }

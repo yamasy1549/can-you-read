@@ -1,13 +1,13 @@
 import React  from 'react'
 import styles from './AnimRotateChar.css'
 
-const AnimRotateChar = ({ children }) => (
+const AnimRotateChar = ({ text, animation, delay = 0, duration }) => (
   <span>
-    {String(children).split('').map((c, i) =>
+    {String(text).split('').map((c, i) =>
       <span
         key={i}
-        className={styles.rotate}
-        style={{animationDelay: `${0.05*i}s`}}
+        className={ (animation == 'big') ? styles.rotateBig : styles.rotate }
+        style={{animationDuration: `${duration}s`, animationDelay: `${delay+0.05*i}s`}}
       >
         {c}
       </span>

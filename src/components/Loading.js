@@ -3,7 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import LoadingContainer from '../containers/LoadingContainer'
 import QuizContainer    from '../containers/QuizContainer'
 import AnimRotateChar   from '../animations/AnimRotateChar'
-import AnimAppear       from '../animations/AnimAppear'
 import reset            from './reset.css'
 import variables        from './variables.css';
 import base             from './base.css'
@@ -25,9 +24,14 @@ const Loading = ({ ready, playing, onStartClick }) => (
         return (
           <div className={styles.loadingWrapper}>
             <h1 className={styles.title}>
-              <AnimRotateChar>難読地名くいず</AnimRotateChar>
+              <AnimRotateChar
+                text={'難読地名くいず'}
+                animation={'big'}
+                duration={3}
+              />
             </h1>
             <button onClick={onStartClick} className={styles.startButton} id='animStart_Button'>
+              <div className={styles.buttonWave} id='animStart_ButtonWave' />
               <span className={styles.buttonText} id='animStart_ButtonText'>始める</span>
             </button>
           </div>

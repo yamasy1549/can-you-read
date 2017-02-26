@@ -10,6 +10,7 @@ const AnswerForm = ({ onAnswerClick }) => (
      autoFocus={true}
      placeholder='ここに読み仮名を入力'
    />
+   <hr className={styles.answerLine} />
    <button className={styles.answerButton} onClick={onAnswerClick}>
      決定
    </button>

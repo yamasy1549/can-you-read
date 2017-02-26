@@ -16,4 +16,6 @@
   --mincho:         Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
 
   --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-quad:  cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }

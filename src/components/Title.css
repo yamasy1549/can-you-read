@@ -1,3 +1,8 @@
+@keyframes animTitle {
+  0% { transform: translateY(-50vh); }
+  100% { transform: translateY(0vh); }
+}
+
 .title {
   display: inline-block;
   margin: auto 3rem auto 0;
@@ -6,6 +11,10 @@
   letter-spacing: 0.3rem;
   color: var(--white);
   background: var(--blue);
+
+  transform: translateY(-50vh);
+  animation: animTitle 0.96s var(--ease-out-expo);
+  animation-fill-mode: forwards;
 }
 
 @media (max-height: 800px), (max-width: 1000px) {

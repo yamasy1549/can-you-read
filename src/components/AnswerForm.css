@@ -41,6 +41,24 @@
   cursor: pointer;
 }
 
+@keyframes animAnswerLine {
+  0% { height: 0; }
+  100% { height: 70vh; }
+}
+
+.answerLine {
+  position: absolute;
+  width: 1px;
+  right: 50%; /* TODO: 調整 */
+  border: 0;
+  bottom: calc(8vh + 55px);
+  background: var(--purple);
+
+  animation: animAnswerLine 0.96s var(--ease-out-quad);;
+  animation-fill-mode: forwards;
+}
+
+/*
 .answerButton:before {
   content: '';
   position: absolute;
@@ -52,6 +70,7 @@
   left: -70vh;
   pointer-events: none;
 }
+*/
 
 @media (max-height: 800px), (max-width: 1000px) {
   .input {
@@ -69,11 +88,13 @@
     font-size: 1.2rem;
   }
 
+  /*
   .answerButton:before {
     width: 68vh;
     bottom: 2.75rem;
     left: -68vh;
   }
+*/
 }
 
 @media (max-device-width: 550px) {
@@ -92,10 +113,12 @@
     font-size: 4rem;
   }
 
+  /*
   .answerButton:before {
     height: 2px;
     width: 60vh;
     bottom: 7.4rem;
     left: -60vh;
   }
+  */
 }

@@ -1,3 +1,8 @@
+@keyframes animHintButton {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .hintButton {
   position: absolute;
   left: 7.5rem;
@@ -10,6 +15,11 @@
   color: var(--white);
   padding: 0;
   cursor: pointer;
+
+  opacity: 0;
+  animation: animHintButton 0.63s var(--ease-out-quart);
+  animation-delay: 0.96s;
+  animation-fill-mode: forwards;
 }
 
 .hintButton:after {

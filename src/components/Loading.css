@@ -60,6 +60,17 @@
   opacity: 0;
 }
 
+.buttonWave {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  right: calc(50% - 35px);
+  top: calc(50% - 35px);
+  border: var(--red) 1px solid;
+  background: transparent;
+  border-radius: 50%;
+}
+
 @keyframes startButtonText {
   0% { opacity: 0; }
   100% { opacity: 1; }

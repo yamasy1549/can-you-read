@@ -8,11 +8,26 @@
   margin: 0.7vh auto;
 }
 
+@keyframes animProgress {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) rotateY(200deg);
+  },
+  100% {
+    opacity: 1;
+    transform: translateY(0px) rotateY(0deg);
+  }
+}
+
 .progress {
   margin: 0.7vh 1rem;
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--light-gray);
+
+  animation: animProgress 0.8s var(--ease-out-quart);
+  animation-delay: 0.96s;
+  animation-fill-mode: forwards;
 }
 
 .done {
