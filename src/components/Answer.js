@@ -3,19 +3,13 @@ import { connect }          from 'react-redux'
 import { toJapanese }       from 'jp-num'
 import styles               from './Answer.css'
 
-const key = 'AIzaSyDDRFpo9sNZXwfRgmX4454_IJNubuuKFDQ'
-const size = '450x800'
-const scale = '4'
-const zoom = '8'
-const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`
-
-const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, results, onNextClick, onResultClick }) => (
+const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, results, onNextClick, onResultClick, mapURL }) => (
   <div className={styles.answerWrapper}>
-    <div className={styles.answer}>
-      <span className={styles.judgment}>
+    <div className={styles.answer} id='animAnswer'>
+      <span className={styles.judgment} id='animAnswer_Judgment'>
         {correctAnswer ? '正解' : '不正解'}
       </span>
-      <div className={styles.placeNameWrapper}>
+      <div className={styles.placeNameWrapper} id='animAnswer_PlaceName_Wrapper'>
         <span className={styles.currentQuiz}>
           第{toJapanese(String(currentQuiz))}問
         </span>
@@ -31,7 +25,7 @@ const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer
           {description}
         </p>
       </div>
-      <img src={mapURL + prefecture + kanji} alt={kanji} className={styles.map} />
+      <img src={mapURL + prefecture + kanji} alt={kanji} className={styles.map} id='animAnswer_Img' />
       {(() => {
         if(currentQuiz == quizCount) {
           return (

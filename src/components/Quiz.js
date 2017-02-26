@@ -13,6 +13,12 @@ const Quiz = ({
 }) => (
   <div>
     {(() => {
+      const key = 'AIzaSyDDRFpo9sNZXwfRgmX4454_IJNubuuKFDQ'
+      const size = '450x800'
+      const scale = '4'
+      const zoom = '8'
+      const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`
+
       if(playing) {
         return (
           <div>
@@ -44,6 +50,7 @@ const Quiz = ({
                       results={results}
                       onNextClick={() => onNextClick(currentQuiz, quizCount)}
                       onResultClick={() => onResultClick(quizzes)}
+                      mapURL={mapURL}
                     />
                   )
                 }
