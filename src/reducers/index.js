@@ -7,6 +7,7 @@ import openHint            from './openHint'
 import openAnswer          from './openAnswer'
 import quizCount           from './quizCount'
 import results             from './results'
+import animations          from './animations'
 
 const quizApp = combineReducers({
     ready,
@@ -16,6 +17,7 @@ const quizApp = combineReducers({
     openHint,
     openAnswer,
     quizCount,
-    results
+    results,
+    animations
 })
 export default quizApp

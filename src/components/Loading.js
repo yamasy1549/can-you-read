@@ -17,7 +17,7 @@ const Loading = ({ ready, playing, onStartClick }) => (
         return (
           <div className={styles.loadingWrapper}>
             <div className={styles.loading}>
-              <img src={loadingImg} className={styles.loadingIcon} alt='Loading...' />
+              <img src={loadingImg} className={styles.loadingIcon} id='animLoading_Img' alt='Loading...' />
             </div>
           </div>
         )
@@ -27,13 +27,9 @@ const Loading = ({ ready, playing, onStartClick }) => (
             <h1 className={styles.title}>
               <AnimRotateChar>難読地名くいず</AnimRotateChar>
             </h1>
-              <AnimAppear duration={1.73} delay={0.63}>
-                <button onClick={(e) => onStartClick(e)} className={styles.startButton}>
-                  <AnimAppear duration={0.60} delay={1.76}>
-                  始める
-                  </AnimAppear>
-                </button>
-              </AnimAppear>
+            <button onClick={onStartClick} className={styles.startButton} id='animStart_Button'>
+              <span className={styles.buttonText} id='animStart_ButtonText'>始める</span>
+            </button>
           </div>
         )
       }

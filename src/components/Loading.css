@@ -32,11 +32,8 @@
 }
 
 @keyframes startButton {
-  100% {
-    background: var(--orange);
-    width: 55px;
-    height: 55px;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .startButton {
@@ -56,9 +53,23 @@
   cursor: pointer;
   writing-mode: initial;
   padding: 0;
+
+  animation: startButton 1.73s;
+  animation-delay: 0.63s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
-.startButton:target {
-  animation: startButton 2.73s var(--ease-out-quart);
+@keyframes startButtonText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.buttonText {
+  display: inline-block;
+
+  animation: startButtonText 0.6s;
+  animation-delay: 1.76s;
   animation-fill-mode: forwards;
- }
+  opacity: 0;
+}

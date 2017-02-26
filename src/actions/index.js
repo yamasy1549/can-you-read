@@ -33,6 +33,25 @@ export const startFetchQuizzes = () => {
   }
 }
 
+export const animLoading = (quizzes) => {
+  const duration = 230
+  const loadingImg = document.getElementById('animLoading_Img')
+
+  loadingImg.animate([
+    { opacity: '1' },
+    { opacity: '0' }
+  ], {
+    duration: duration,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
+  })
+
+  return (dispatch) => {
+    setTimeout((duration) => {
+      dispatch(successFetchQuizzes(quizzes))
+    }, duration)
+  }
+}
+
 export const successFetchQuizzes = (quizzes) => {
   return {
     type: 'FETCH_QUIZZES_SUCCESS',
@@ -57,7 +76,7 @@ export const fetchQuizzes = (quizCount) => {
     axios.get(url)
       .then((response) => {
         quizzes = response.data
-        dispatch(successFetchQuizzes(quizzes))
+        dispatch(animLoading(quizzes))
       })
       .catch((error) => {
         dispatch(failureFetchQuizzes(error))
@@ -134,14 +153,39 @@ export const tallyAnswers = (quizzes) => {
   }
 }
 
-export const doSomething = (e) => {
-  const duration = 1000
+export const animStartToPlay = () => {
+  const duration = 2730
+  const button = document.getElementById('animStart_Button')
+  const buttonText = document.getElementById('animStart_ButtonText')
 
-  e.target.animate([
-    { transform: 'translate3D(0, 0, 0)' },
-    { transform: 'translate3D(0, -300px, 0)' }
+  button.animate([
+    {
+      background: '#EC3F33', // var(--red)
+      width: '70px',
+      height: '70px'
+    },
+    {
+      background: '#F38139', // var(--orange)
+      width: '55px',
+      height: '55px'
+    }
   ], {
-    duration: duration
+    duration: duration,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
+  })
+
+  buttonText.animate([
+    {
+      opacity: '1',
+      transform: 'scale(1)'
+    },
+    {
+      opacity: '0',
+      transform: 'scale(2)'
+    }
+  ], {
+    duration: duration,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
   })
 
   return (dispatch) => {
