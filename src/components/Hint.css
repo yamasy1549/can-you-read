@@ -12,7 +12,7 @@
   background: var(--purple);
   border: 0px;
   border-radius: 50%;
-  color: var(--white);
+  color: var(--light-purple);
   padding: 0;
   cursor: pointer;
 
@@ -20,6 +20,10 @@
   animation: animHintButton 0.63s var(--ease-out-quart);
   animation-delay: 0.96s;
   animation-fill-mode: forwards;
+}
+
+.hintButton:hover {
+  color: var(--white);
 }
 
 .hintButton:after {
@@ -36,7 +40,7 @@
   display: block;
 }
 
-@keyframes expand {
+@keyframes animHintExpand {
   0% { clip-path: circle(0px at 50% 240px); }
   100% { clip-path: circle(240px at 50% 240px); }
 }
@@ -52,12 +56,17 @@
   font-size: 1.8rem;
 
   clip-path: circle(0px at 50% 240px);
-  animation: expand 1.03s var(--ease-out-quart);
+  animation: animHintExpand 1.03s var(--ease-out-quart);
   animation-fill-mode: forwards;
 }
 
 .message {
   padding: 6vh 5rem 7vh;
+}
+
+@keyframes animPassButton {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .passButton {
@@ -68,6 +77,10 @@
   font-family: var(--mincho);
   color: var(--light-purple);
   cursor: pointer;
+
+  animation: animPassButton 1.03s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .passButton:before {
