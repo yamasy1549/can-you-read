@@ -133,3 +133,20 @@ export const tallyAnswers = (quizzes) => {
     incorrect
   }
 }
+
+export const doSomething = (e) => {
+  const duration = 1000
+
+  e.target.animate([
+    { transform: 'translate3D(0, 0, 0)' },
+    { transform: 'translate3D(0, -300px, 0)' }
+  ], {
+    duration: duration
+  })
+
+  return (dispatch) => {
+    setTimeout((duration) => {
+      dispatch(startToPlay())
+    }, duration)
+  }
+}

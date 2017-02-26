@@ -28,7 +28,7 @@ const Loading = ({ ready, playing, onStartClick }) => (
               <AnimRotateChar>難読地名くいず</AnimRotateChar>
             </h1>
               <AnimAppear duration={1.73} delay={0.63}>
-                <button onClick={onStartClick} className={styles.startButton}>
+                <button onClick={(e) => onStartClick(e)} className={styles.startButton}>
                   <AnimAppear duration={0.60} delay={1.76}>
                   始める
                   </AnimAppear>

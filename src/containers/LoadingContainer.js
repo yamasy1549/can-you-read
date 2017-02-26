@@ -1,6 +1,6 @@
 import { connect }     from 'react-redux'
 import Loading         from '../components/Loading'
-import { startToPlay } from '../actions'
+import { startToPlay, doSomething } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onStartClick: () => {
-      dispatch(startToPlay())
+    onStartClick: (e) => {
+      dispatch(doSomething(e))
     }
   }
 }
