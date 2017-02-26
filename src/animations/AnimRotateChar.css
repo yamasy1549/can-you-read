@@ -1,0 +1,17 @@
+@keyframes rotateChar {
+  0% {
+    transform: translateX(-70px) translateY(-100px) rotateY(-400deg) translateZ(0px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotateY(0deg) translateZ(0px);
+    opacity: 1;
+  }
+}
+
+.rotate {
+  display: inline-block;
+  animation: rotateChar 3s var(--ease-out-quart);
+  animation-fill-mode: forwards;
+  transform: translateX(-70px) translateY(-100px) rotateY(-400deg) translateZ(0px);
+}

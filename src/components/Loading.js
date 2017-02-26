@@ -1,11 +1,13 @@
-import React             from 'react'
-import LoadingContainer  from '../containers/LoadingContainer'
-import QuizContainer     from '../containers/QuizContainer'
-import reset             from './reset.css'
-import variables         from './variables.css';
-import base              from './base.css'
-import styles            from './Loading.css'
-import loadingImg        from '../images/loading.gif'
+import React            from 'react'
+import LoadingContainer from '../containers/LoadingContainer'
+import QuizContainer    from '../containers/QuizContainer'
+import AnimRotateChar   from '../animations/AnimRotateChar'
+import AnimAppear       from '../animations/AnimAppear'
+import reset            from './reset.css'
+import variables        from './variables.css';
+import base             from './base.css'
+import styles           from './Loading.css'
+import loadingImg       from '../images/loading.gif'
 
 const Loading = ({ ready, playing, onStartClick }) => (
   <div>
@@ -21,8 +23,16 @@ const Loading = ({ ready, playing, onStartClick }) => (
       } else if(ready && !playing) {
         return (
           <div className={styles.loadingWrapper}>
-            <h1 className={styles.title}>難読地名くいず</h1>
-            <button onClick={onStartClick} className={styles.startButton}>始める</button>
+            <h1 className={styles.title}>
+              <AnimRotateChar>難読地名くいず</AnimRotateChar>
+            </h1>
+              <AnimAppear duration={1.73} delay={0.63}>
+                <button onClick={onStartClick} className={styles.startButton}>
+                  <AnimAppear duration={0.60} delay={1.76}>
+                  始める
+                  </AnimAppear>
+                </button>
+              </AnimAppear>
           </div>
         )
       }

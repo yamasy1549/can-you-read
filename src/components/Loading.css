@@ -44,10 +44,8 @@
   color: var(--white);
   font-size: 1.8rem;
   font-family: var(--mincho);
-  text-align: center;
-  line-height: 6.8rem;
   z-index: auto;
   cursor: pointer;
   writing-mode: initial;
-  margin-right: -12px;
+  padding: 0;
 }
