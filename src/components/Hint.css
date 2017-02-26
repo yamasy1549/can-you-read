@@ -4,9 +4,9 @@
   bottom: 14vh;
   width: 30px;
   height: 30px;
-  background: var(--light-purple);
+  background: var(--purple);
   border: 0px;
-  border-radius: 30px;
+  border-radius: 50%;
   color: var(--white);
   padding: 0;
   cursor: pointer;
@@ -26,6 +26,11 @@
   display: block;
 }
 
+@keyframes expand {
+  0% { clip-path: circle(0px at 50% 240px); }
+  100% { clip-path: circle(240px at 50% 240px); }
+}
+
 .hint {
   display: flex;
   position: absolute;
@@ -35,6 +40,10 @@
   background: var(--purple);
   color: var(--white);
   font-size: 1.8rem;
+
+  clip-path: circle(0px at 50% 240px);
+  animation: expand 1.03s var(--ease-out-quart);
+  animation-fill-mode: forwards;
 }
 
 .message {
@@ -89,7 +98,6 @@
     bottom: 10vh;
     width: 23px;
     height: 23px;
-    border-radius: 23px;
   }
 
   .hint {
@@ -110,7 +118,6 @@
     bottom: 10vh;
     width: 80px;
     height: 80px;
-    border-radius: 50%;
     font-size: 3rem;
   }
 

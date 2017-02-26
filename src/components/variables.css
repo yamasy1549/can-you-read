@@ -1,16 +1,19 @@
 :root {
-  --white:        #FFFFFF;
-  --light-purple: #927F9A;
-  --purple:       #715A7F;
-  --blue:         #395E7C;
-  --light-blue:   #FAFDFF;
-  --gray:         #666666;
-  --light-gray:   #CCCCCC;
-  --green:        #72B29B;
-  --light-green:  #E4EFEC;
-  --orange:       #F38139;
-  --pink:         #FA7C7D;
-  --red:          #EC3F33;
+  --white:          #FFFFFF;
+  --light-purple:   #927F9A;
+  --purple:         #715A7F;
+  --blue:           #395E7C;
+  --light-blue:     #FAFDFF;
+  --gray:           #666666;
+  --light-gray:     #CCCCCC;
+  --green:          #72B29B;
+  --light-green:    #E4EFEC;
+  --orange:         #F38139;
+  --pink:           #FA7C7D;
+  --red:            #EC3F33;
+  --blur:           #E6F8FE;
 
-  --mincho:       Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --mincho:         Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
 }

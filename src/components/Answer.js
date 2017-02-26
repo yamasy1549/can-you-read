@@ -8,7 +8,6 @@ const size = '450x800'
 const scale = '4'
 const zoom = '8'
 const mapURL = `\/\/maps.google.com/maps/api/staticmap?key=${key}&size=${size}&scale=${scale}&zoom=${zoom}&markers=`
-console.log(mapURL)
 
 const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, results, onNextClick, onResultClick }) => (
   <div className={styles.answerWrapper}>

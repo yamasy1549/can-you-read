@@ -1,4 +1,5 @@
 import React            from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import LoadingContainer from '../containers/LoadingContainer'
 import QuizContainer    from '../containers/QuizContainer'
 import AnimRotateChar   from '../animations/AnimRotateChar'
