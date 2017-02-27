@@ -7,7 +7,7 @@ import { Provider }                      from 'react-redux'
 import { applyMiddleware, createStore }  from 'redux'
 import App                               from './components/App'
 import quizzes                           from './reducers'
-import { initialize, startToPlay }                    from './actions'
+import { initialize }                    from './actions'
 
 const logger = createLogger()
 const store = createStore(
@@ -15,8 +15,7 @@ const store = createStore(
   applyMiddleware(thunk, promise, logger)
 )
 
-store.dispatch(initialize(1))
-store.dispatch(startToPlay()) // TODO: あとでけす
+store.dispatch(initialize(10))
 
 render(
   <Provider store={store}>
