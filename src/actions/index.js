@@ -92,6 +92,67 @@ export const gotoNextQuiz = (currentQuiz, quizCount) => {
   }
 }
 
+export const animAppearQuiz = () => {
+  const level = document.getElementById('animLevel')
+  const quiz = document.getElementById('animQuiz')
+
+  level.style.display = 'block'
+  quiz.style.display = 'block'
+
+  return {
+    type: 'APPEAR_CURRENT_QUIZ'
+  }
+}
+
+export const animClearQuiz = () => {
+  const level = document.getElementById('animLevel')
+  const quiz = document.getElementById('animQuiz')
+
+  level.style.display = 'none'
+  quiz.style.display = 'none'
+
+  return {
+    type: 'CLEAR_CURRENT_QUIZ'
+  }
+}
+
+export const animGotoNextQuiz = (currentQuiz, quizCount) => {
+  const duration = 1200
+  const answer = document.getElementById('animAnswer')
+  const nextButton = document.getElementById('animAnswer_NextButton')
+
+  return (dispatch) => {
+    dispatch(animClearQuiz())
+
+    answer.animate([
+      {
+        clipPath: 'circle(100vw at 50% 86vh)',
+        background: '#FA7C7D' // var(--pink)
+      },
+      {
+        clipPath: 'circle(0px at 50% 86vh)',
+        background: '#F38139' // var(--orange)
+      }
+    ], {
+      duration: duration,
+      easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
+    })
+
+    nextButton.animate([
+      { opacity: '1' },
+      { opacity: '0' }
+    ], {
+      duration: duration,
+      easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
+    })
+
+    setTimeout(() => {
+      dispatch(gotoNextQuiz(currentQuiz, quizCount))
+      dispatch(animAppearQuiz())
+    }, duration)
+  }
+}
+
 export const gotoPrevQuiz = (currentQuiz) => {
   const newCurrentQuiz =  (currentQuiz-1 < 1) ? 1 : --currentQuiz
   return {

@@ -35,7 +35,7 @@ const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer
           )
         } else {
           return (
-            <button className={styles.nextButton} onClick={onNextClick}>
+            <button className={styles.nextButton} onClick={onNextClick} id='animAnswer_NextButton'>
               次へ
             </button>
           )

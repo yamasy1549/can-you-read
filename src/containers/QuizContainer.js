@@ -4,7 +4,7 @@ import {
   toggleHint,
   toggleAnswer,
   checkAnswer,
-  gotoNextQuiz,
+  animGotoNextQuiz,
   tallyAnswers,
   initialize
 } from '../actions'
@@ -30,16 +30,18 @@ const mapDispatchToProps = (dispatch) => {
     },
     onPassClick: (openAnswer) => {
       dispatch(toggleAnswer(openAnswer))
+      dispatch(toggleHint(true))
     },
     onAnswerClick: (openAnswer, answer, currentQuiz) => {
       const input = document.getElementById('answer').value
       if(input.length) {
         dispatch(toggleAnswer(openAnswer))
         dispatch(checkAnswer(input, answer, currentQuiz))
+        dispatch(toggleHint(true))
       }
     },
     onNextClick: (currentQuiz, quizCount) => {
-      dispatch(gotoNextQuiz(currentQuiz, quizCount))
+      dispatch(animGotoNextQuiz(currentQuiz, quizCount))
       document.getElementById('answer').value = ''
     },
     onResultClick: (quizzes) => {

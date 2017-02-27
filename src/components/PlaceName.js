@@ -3,7 +3,7 @@ import AnimRotateChar       from '../animations/AnimRotateChar'
 import styles               from './PlaceName.css'
 
 const PlaceName = ({ kanji, prefecture }) => (
-  <div className={styles.quiz}>
+  <div className={styles.quiz} id='animQuiz'>
     <span className={styles.prefecture}>
       <AnimRotateChar
         text={prefecture}
