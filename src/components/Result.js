@@ -23,10 +23,10 @@ const Result = ({ quizCount, pass, correct, incorrect, onReplayClick }) => (
 )
 
 Result.propTypes = {
-  quizCount: PropTypes.number.isRequired,
-  pass:      PropTypes.number.isRequired,
-  correct:   PropTypes.number.isRequired,
-  incorrect: PropTypes.number.isRequired
+  quizCount:     PropTypes.number.isRequired,
+  pass:          PropTypes.number.isRequired,
+  correct:       PropTypes.number.isRequired,
+  incorrect:     PropTypes.number.isRequired,
+  onReplayClick: PropTypes.func.isRequired
 }
-
 export default Result

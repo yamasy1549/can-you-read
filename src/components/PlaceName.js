@@ -22,8 +22,8 @@ const PlaceName = ({ kanji, prefecture }) => (
 )
 
 PlaceName.propTypes = {
-  kanji: PropTypes.string.isRequired,
-  prefecture: PropTypes.string.isRequired,
+  kanji:      PropTypes.string,
+  prefecture: PropTypes.string
 }
 
 export default PlaceName

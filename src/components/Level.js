@@ -14,7 +14,7 @@ const Level = ({ level, currentQuiz }) => (
 )
 
 Level.propTypes = {
-  level:       PropTypes.number.isRequired,
+  level:       PropTypes.number,
   currentQuiz: PropTypes.number.isRequired
 }
 

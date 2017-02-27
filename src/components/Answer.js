@@ -3,11 +3,22 @@ import { connect }          from 'react-redux'
 import { toJapanese }       from 'jp-num'
 import styles               from './Answer.css'
 
-const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, results, onNextClick, onResultClick, mapURL }) => (
+const Answer = ({
+  prefecture, kanji, kana, description, quizCount, correctAnswer, currentQuiz, mapURL,
+  onNextClick, onResultClick
+}) => (
   <div className={styles.answerWrapper}>
     <div className={styles.answer} id='animAnswer'>
       <span className={styles.judgment} id='animAnswer_Judgment'>
-        {correctAnswer ? '正解' : '不正解'}
+        {(() => {
+          if(correctAnswer == null) {
+            return 'パス'
+          } else if(correctAnswer) {
+            return '正解'
+          } else {
+            return '不正解'
+          }
+        })()}
       </span>
       <div className={styles.placeNameWrapper} id='animAnswer_PlaceName_Wrapper'>
         <span className={styles.currentQuiz}>
@@ -46,10 +57,15 @@ const Answer = ({ prefecture, kanji, kana, description, quizCount, correctAnswer
 )
 
 Answer.propTypes = {
-  prefecture:  PropTypes.string.isRequired,
-  kanji:       PropTypes.string.isRequired,
-  kana:        PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  onNextClick: PropTypes.func.isRequired
+  prefecture:    PropTypes.string.isRequired,
+  kanji:         PropTypes.string.isRequired,
+  kana:          PropTypes.string.isRequired,
+  description:   PropTypes.string.isRequired,
+  quizCount:     PropTypes.number.isRequired,
+  correctAnswer: PropTypes.bool,
+  currentQuiz:   PropTypes.number.isRequired,
+  mapURL:        PropTypes.string.isRequired,
+  onNextClick:   PropTypes.func.isRequired,
+  onResultClick: PropTypes.func.isRequired,
 }
 export default Answer

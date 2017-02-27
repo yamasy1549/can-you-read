@@ -175,6 +175,12 @@ export const toggleAnswer = (openAnswer) => {
   }
 }
 
+export const passAnswer = () => {
+  return {
+    type: 'PASS_ANSWER'
+  }
+}
+
 export const checkAnswer = (input, answer, currentQuiz) => {
   const correctAnswer = (input === answer) ? true : false
   if(correctAnswer) {

@@ -1,6 +1,6 @@
-import React          from 'react'
-import { toJapanese } from 'jp-num'
-import styles         from './Progress.css'
+import React, { PropTypes } from 'react'
+import { toJapanese }       from 'jp-num'
+import styles               from './Progress.css'
 
 const progress = (currentQuiz, i) => {
   return (i+1 <= currentQuiz) ? `${styles.progress} ${styles.done}` : `${styles.progress}`
@@ -18,4 +18,8 @@ const Progress = ({ currentQuiz, quizCount }) => (
   </nav>
 )
 
+Progress.propTypes = {
+  currentQuiz: PropTypes.number.isRequired,
+  quizCount:   PropTypes.number.isRequired
+}
 export default Progress

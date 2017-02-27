@@ -23,8 +23,8 @@ const Hint = ({ hint, kana, openHint, onHintClick, onPassClick }) => (
 )
 
 Hint.propTypes = {
-  hint:        PropTypes.number.isRequired,
-  kana:        PropTypes.string.isRequired,
+  hint:        PropTypes.number,
+  kana:        PropTypes.string,
   openHint:    PropTypes.bool.isRequired,
   onHintClick: PropTypes.func.isRequired,
   onPassClick: PropTypes.func.isRequired

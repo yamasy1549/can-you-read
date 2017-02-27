@@ -16,6 +16,8 @@ const quiz = (state, action) => {
       return Object.assign({}, state, { correctAnswer: true })
     case 'BE_INCORRECT_ANSWER':
       return Object.assign({}, state, { correctAnswer: false })
+    case 'PASS_ANSWER':
+      return Object.assign({}, state, { correctAnswer: undefined })
     default:
       return state
   }

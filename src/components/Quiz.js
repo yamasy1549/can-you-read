@@ -75,12 +75,12 @@ const Quiz = ({
 )
 
 Quiz.propTypes = {
-  quizzes:          PropTypes.array.isRequired,
-  quiz:             PropTypes.object,
-  quizCount:        PropTypes.number.isRequired,
-  currentQuiz:      PropTypes.number.isRequired,
-  openHint:         PropTypes.bool.isRequired,
-  openAnswer:       PropTypes.bool.isRequired,
-  results:          PropTypes.object.isRequired
+  quizzes:     PropTypes.array.isRequired,
+  quiz:        PropTypes.object,
+  quizCount:   PropTypes.number.isRequired,
+  currentQuiz: PropTypes.number.isRequired,
+  openHint:    PropTypes.bool.isRequired,
+  openAnswer:  PropTypes.bool.isRequired,
+  results:     PropTypes.object.isRequired
 }
 export default Quiz
