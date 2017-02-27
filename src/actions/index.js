@@ -104,6 +104,24 @@ export const animAppearQuiz = () => {
   }
 }
 
+export const animClearAllQuiz = () => {
+  const header = document.getElementById('animHeader')
+  const level = document.getElementById('animLevel')
+  const quiz = document.getElementById('animQuiz')
+  const hintWrapper = document.getElementById('animHint_Wrapper')
+  const answerFormWrapper = document.getElementById('animAnswerForm_Wrapper')
+
+  header.style.display = 'none'
+  level.style.display = 'none'
+  quiz.style.display = 'none'
+  hintWrapper.style.display = 'none'
+  answerFormWrapper.style.display = 'none'
+
+  return {
+    type: 'CLEAR_ALL_QUIZ'
+  }
+}
+
 export const animClearQuiz = () => {
   const level = document.getElementById('animLevel')
   const quiz = document.getElementById('animQuiz')

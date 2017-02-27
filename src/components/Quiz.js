@@ -47,7 +47,6 @@ const Quiz = ({
                       {...quiz}
                       quizCount={quizCount}
                       currentQuiz={currentQuiz}
-                      results={results}
                       onNextClick={() => onNextClick(currentQuiz, quizCount)}
                       onResultClick={() => onResultClick(quizzes)}
                       mapURL={mapURL}

@@ -126,6 +126,8 @@
   line-height: 6.8rem;
   z-index: auto;
   cursor: pointer;
+  transform: rotate(90deg);
+  writing-mode: initial;
 
   opacity: 0;
   animation: animAnswerFade 0.5s var(--ease-out-quart);

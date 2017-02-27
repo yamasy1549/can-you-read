@@ -15,7 +15,7 @@ const store = createStore(
   applyMiddleware(thunk, promise, logger)
 )
 
-store.dispatch(initialize(10))
+store.dispatch(initialize(1))
 store.dispatch(startToPlay()) // TODO: あとでけす
 
 render(

@@ -1,0 +1,222 @@
+@keyframes animResultWrapper {
+  0% { clip-path: circle(0px at 50% 90%); }
+  100% { clip-path: circle(1000px at 50% 90%); }
+ }
+
+@keyframes animResultWrapperTransparent {
+  0% { background: rgba(255, 255, 255, 1); }
+  100% { background: rgba(255, 255, 255, 0.4); }
+ }
+
+.resultWrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+
+  clip-path: circle(0px at 50% 90%);
+  background: rgba(255, 255, 255, 1); /* var(--white) */
+  animation: animResultWrapper 1.2s var(--ease-out-expo),
+             animResultWrapperTransparent 0.86s ease 1.4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animResultTitle {
+  0% {
+    transform: translateY(60vh);
+    font-size: 1.5rem;
+  }
+  100% {
+    transform: translateY(0vh);
+    font-size: 3rem;
+  }
+ }
+
+.resultTitle {
+  color: var(--pink);
+
+  font-size: 3rem;
+  transform: translateY(60vh);
+  animation: animResultTitle 1.2s var(--ease-out-quart);
+  animation-fill-mode: forwards;
+}
+
+.resultList {
+  margin: 30px auto 30px;
+}
+
+@keyframes animResult {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+ }
+
+.result {
+  margin: auto 40px auto;
+  font-weight: bold;
+}
+
+@keyframes animResultListFirst {
+  0% { transform: translateX(-65px); }
+  100% { transform: translateX(0px); }
+ }
+
+.result:nth-child(1) {
+  color: var(--orange);
+
+  transform: translateX(-65px);
+  animation: animResultListFirst 1.2s var(--ease-out-expo);
+  animation-delay: 1.4s;
+  animation-fill-mode: forwards;
+}
+
+.result:nth-child(2) {
+  color: var(--blue);
+}
+
+@keyframes animResultListThird {
+  0% { transform: translateX(65px); }
+  100% { transform: translateX(0px); }
+ }
+
+.result:nth-child(3) {
+  color: var(--purple);
+
+  transform: translateX(65px);
+  animation: animResultListThird 1.2s var(--ease-out-expo);
+  animation-delay: 1.4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animResultPunctuation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+ }
+
+.result:before {
+  content: '◆';
+  color: var(--pink);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+
+  opacity: 0;
+  animation: animResultPunctuation 1.06s var(--ease-out-quart);
+  animation-delay: 1.4s;
+  animation-fill-mode: forwards;
+}
+
+.evaluation,
+.share {
+  width: 30%;
+  margin: 20px auto;
+  writing-mode: horizontal-tb;
+  background: var(--pink);
+  border-radius: 16px;
+  padding: 20px 40px;
+  color: var(--white);
+  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+}
+
+@keyframes animResultEvaluation {
+  0% {
+    width: 0;
+    padding: 0;
+  }
+  100% {
+    width: 30%;
+    padding: 20px 40px;
+  }
+ }
+
+ .evaluation {
+  width: 0;
+  padding: 0;
+  animation: animResultEvaluation 0.9s var(--ease-out-quart);
+  animation-delay: 3.6s;
+  animation-fill-mode: forwards;
+ }
+
+@keyframes animResultTransparent {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+ }
+
+.share {
+  background: rgba(255, 255, 255, 0.8); /* var(--white) */
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+
+  opacity: 0;
+  animation: animResultTransparent 0.36s var(--ease-out-quart);
+  animation-delay: 5.5s;
+  animation-fill-mode: forwards;
+}
+
+.text {
+  opacity: 0;
+  animation: animResultTransparent 0.9s var(--ease-out-quart);
+  animation-delay: 3.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animResultMessage {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  1% {
+    transform: scale(2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+ }
+
+.message {
+  font-size: 4rem;
+  margin-top: 10px;
+
+  opacity: 0;
+  transform: scale(2);
+  animation: animResultMessage 0.8s var(--ease-out-quart);
+  animation-delay: 4.5s;
+  animation-fill-mode: forwards;
+}
+
+.button {
+  display: block;
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-family: var(--mincho);
+  cursor: pointer;
+}
+
+.buttonTextTwitter:link,
+.buttonTextTwitter:visited,
+.buttonTextTwitter:hover,
+.buttonTextTwitter:active {
+  color: var(--twitter);
+}
+
+.buttonText {
+  color: var(--pink);
+}
+
+.icon {
+  height: 3rem;
+  display: inline-block;
+  margin-bottom: -0.8rem;
+  margin-right: 0.8rem;
+}

@@ -6,7 +6,8 @@ import {
   checkAnswer,
   animGotoNextQuiz,
   tallyAnswers,
-  initialize
+  initialize,
+  animClearAllQuiz
 } from '../actions'
 
 const mapStateToProps = (state) => {
@@ -46,6 +47,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     onResultClick: (quizzes) => {
       dispatch(tallyAnswers(quizzes))
+      dispatch(animClearAllQuiz())
+      dispatch(toggleAnswer(true))
     },
     onReplayClick: (quizCount) => {
       dispatch(initialize(quizCount))

@@ -3,7 +3,7 @@ import { toJapanese }       from 'jp-num'
 import styles               from './Hint.css'
 
 const Hint = ({ hint, kana, openHint, onHintClick, onPassClick }) => (
-  <div>
+  <div id='animHint_Wrapper'>
     <button onClick={onHintClick} className={styles.hintButton}>
       ？
     </button>

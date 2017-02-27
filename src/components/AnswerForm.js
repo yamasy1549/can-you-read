@@ -3,7 +3,7 @@ import { connect }          from 'react-redux'
 import styles               from './AnswerForm.css'
 
 const AnswerForm = ({ onAnswerClick }) => (
- <div className={styles.answerFormWrapper}>
+ <div className={styles.answerFormWrapper} id='animAnswerForm_Wrapper'>
    <input
      id='answer'
      className={styles.input}
