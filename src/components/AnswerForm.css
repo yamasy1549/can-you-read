@@ -58,20 +58,6 @@
   animation-fill-mode: forwards;
 }
 
-/*
-.answerButton:before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  height: 1px;
-  width: 70vh;
-  background: var(--purple);
-  bottom: 3.5rem;
-  left: -70vh;
-  pointer-events: none;
-}
-*/
-
 @media (max-height: 800px), (max-width: 1000px) {
   .input {
     bottom: 33vh;
@@ -79,7 +65,7 @@
     font-size: 1.5rem;
   }
 
-  .answerButton{
+  .answerButton {
     right: 22rem;
     bottom: 8vh;
     width: 55px;
@@ -87,14 +73,6 @@
     border-radius: 55px;
     font-size: 1.2rem;
   }
-
-  /*
-  .answerButton:before {
-    width: 68vh;
-    bottom: 2.75rem;
-    left: -68vh;
-  }
-*/
 }
 
 @media (max-device-width: 550px) {
@@ -104,7 +82,7 @@
     font-size: 4rem;
   }
 
-  .answerButton{
+  .answerButton {
     right: 40rem;
     bottom: 8vh;
     width: 150px;
@@ -112,13 +90,4 @@
     border-radius: 150px;
     font-size: 4rem;
   }
-
-  /*
-  .answerButton:before {
-    height: 2px;
-    width: 60vh;
-    bottom: 7.4rem;
-    left: -60vh;
-  }
-  */
 }

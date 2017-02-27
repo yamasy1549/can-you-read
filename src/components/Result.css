@@ -137,6 +137,7 @@
 
  .evaluation {
   width: 0;
+  height: 11rem;
   padding: 0;
   animation: animResultEvaluation 0.9s var(--ease-out-quart);
   animation-delay: 3.6s;
@@ -219,4 +220,34 @@
   display: inline-block;
   margin-bottom: -0.8rem;
   margin-right: 0.8rem;
+}
+
+@media (max-height: 800px), (max-width: 1000px) {
+  @keyframes animResultEvaluation {
+    0% {
+      width: 0;
+      padding: 0;
+    }
+    100% {
+      width: 30%;
+      padding: 20px 20px;
+    }
+   }
+
+  .evaluation {
+    font-size: 2rem;
+
+    animation: animResultEvaluation 0.9s var(--ease-out-quart);
+    animation-delay: 3.6s;
+    animation-fill-mode: forwards;
+  }
+
+  .message {
+    font-size: 3rem;
+  }
+
+  .buttonTextTwitter,
+  .buttonText {
+    font-size: 1.6rem;
+  }
 }

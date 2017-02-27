@@ -33,11 +33,13 @@
   position: absolute;
   right: 0rem;
   bottom: 4vh;
-  display: none;
+  opacity: 0;
 }
 
 .hintButton:hover:after {
-  display: block;
+  opacity: 0;
+  animation: animTransparent 0.63s var(--ease-out-quart);
+  animation-fill-mode: forwards;
 }
 
 @keyframes animHintExpand {
@@ -61,10 +63,10 @@
 }
 
 .message {
-  padding: 6vh 5rem 7vh;
+  padding: 6vh 5rem 0;
 }
 
-@keyframes animPassButton {
+@keyframes animTransparent {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
@@ -72,13 +74,13 @@
 .passButton {
   position: relative;
   border: 0;
-  padding-bottom: 10vh;
+  padding: 10vh 0 10vh;
   background: transparent;
   font-family: var(--mincho);
   color: var(--light-purple);
   cursor: pointer;
 
-  animation: animPassButton 1.03s;
+  animation: animTransparent 1.03s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -116,7 +118,7 @@
 }
 
 @media (max-height: 800px), (max-width: 1000px) {
-  .hintButton{
+  .hintButton {
     left: 6.8rem;
     bottom: 10vh;
     width: 23px;

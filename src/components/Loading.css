@@ -39,7 +39,7 @@
 .startButton {
   position: absolute;
   transform: rotate(90deg);
-  bottom: 9vh;
+  bottom: 12vh;
   right: calc(50% - 35px);
   width: 70px;
   height: 70px;

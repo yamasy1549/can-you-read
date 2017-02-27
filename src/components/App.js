@@ -13,7 +13,6 @@ const App = () => (
     <LoadingContainer className={styles.loading} />
     <Map />
     <div className={styles.blur} />
-    <div className={styles.mask} />
     <QuizContainer />
   </div>
 )

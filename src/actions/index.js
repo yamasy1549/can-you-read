@@ -139,16 +139,28 @@ export const animGotoNextQuiz = (currentQuiz, quizCount) => {
   const answer = document.getElementById('animAnswer')
   const nextButton = document.getElementById('animAnswer_NextButton')
 
+  let nextClipPath
+  let width = window.innerWidth
+  let height = window.innerHeight
+
+  if(width < 550) {
+    nextClipPath = 'circle(0 at 50% 86vh)'
+  } else if((width < 1000) || (height < 800)) {
+    nextClipPath = 'circle(0 at 50% 86vh)'
+  } else {
+    nextClipPath = 'circle(0 at 50% 82vh)'
+  }
+
   return (dispatch) => {
     dispatch(animClearQuiz())
 
     answer.animate([
       {
-        clipPath: 'circle(100vw at 50% 86vh)',
+        clipPath: 'circle(100vw at 50% 82vh)',
         background: '#FA7C7D' // var(--pink)
       },
       {
-        clipPath: 'circle(0px at 50% 86vh)',
+        clipPath: nextClipPath,
         background: '#F38139' // var(--orange)
       }
     ], {
@@ -243,17 +255,36 @@ export const animStartToPlay = () => {
   const button = document.getElementById('animStart_Button')
   const buttonWave = document.getElementById('animStart_ButtonWave')
   const buttonText = document.getElementById('animStart_ButtonText')
+  const title = document.getElementById('animTitle')
+
+  let buttonStyles = window.getComputedStyle(button, null)
+  let nextButtonSize, nextBottom
+  let width = window.innerWidth
+  let height = window.innerHeight
+
+  if(width < 550) {
+    nextButtonSize = '55px'
+    nextBottom = '8vh'
+  } else if((width < 1000) || (height < 800)) {
+    nextButtonSize = '55px'
+    nextBottom = '8vh'
+  } else {
+    nextButtonSize = '70px'
+    nextBottom = '12vh'
+  }
 
   button.animate([
     {
       background: '#EC3F33', // var(--red)
-      width: '70px',
-      height: '70px'
+      width: buttonStyles.getPropertyValue('width'),
+      height: buttonStyles.getPropertyValue('height'),
+      bottom: buttonStyles.getPropertyValue('bottom')
     },
     {
       background: '#F38139', // var(--orange)
-      width: '55px',
-      height: '55px'
+      width: nextButtonSize,
+      height: nextButtonSize,
+      bottom: nextBottom
     }
   ], {
     duration: duration,
@@ -296,9 +327,53 @@ export const animStartToPlay = () => {
     easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
   })
 
+  title.animate([
+    { opacity: '1' },
+    { opacity: '0' }
+  ], {
+    duration: duration,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)' // var(--ease-out-quart)
+  })
+
   return (dispatch) => {
     setTimeout(() => {
       dispatch(startToPlay())
     }, duration-500) // TODO: アニメーションががたつく
+  }
+}
+
+export const startTotterMap = () => {
+  const map = document.getElementById('animJapanMap')
+
+  map.animate([
+    { transform: 'translateX(0) translateY(0)' },
+    { transform: 'translateX(-40px) translateY(-40px)' },
+    { transform: 'translateX(-20px) translateY(-30px)' },
+    { transform: 'translateX(0) translateY(0)' },
+  ], {
+    duration: 20000,
+    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)', // var(--ease-out-quart)
+    delay: 1000,
+    iterations: Infinity
+  })
+
+  return {
+    type: 'START_TOTTER_MAP'
+  }
+}
+
+export const stopTotterMap = () => {
+  const map = document.getElementById('animJapanMap')
+
+  map.animate([
+    { transform: 'translateX(0) translateY(0)' },
+    { transform: 'translateX(0) translateY(0)' },
+  ], {
+    duration: 20000,
+    iterations: Infinity
+  })
+
+  return {
+    type: 'STOP_TOTTER_MAP'
   }
 }

@@ -13,7 +13,7 @@
     background: var(--orange);
   }
   100% {
-    clip-path: circle(100vw at 50% 86vh);
+    clip-path: circle(140vh at 50% 86vh);
     background: var(--pink);
   }
  }
@@ -29,7 +29,7 @@
 
   clip-path: circle(0px at 50% 86vh);
   background: var(--orange);
-  animation: animAnswer 1.2s var(--ease-out-quart);
+  animation: animAnswer 1.8s var(--ease-out-quart);
   animation-fill-mode: forwards;
 }
 

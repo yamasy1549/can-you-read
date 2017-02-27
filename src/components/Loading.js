@@ -22,7 +22,7 @@ const Loading = ({ ready, playing, onStartClick }) => (
       } else if(ready && !playing) {
         return (
           <div className={styles.loadingWrapper}>
-            <h1 className={styles.title}>
+            <h1 className={styles.title} id='animTitle'>
               <AnimRotateChar
                 text={'難読地名くいず'}
                 animation={'big'}

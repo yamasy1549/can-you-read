@@ -7,7 +7,9 @@ import {
   animGotoNextQuiz,
   tallyAnswers,
   initialize,
-  animClearAllQuiz
+  animClearAllQuiz,
+  startTotterMap,
+  stopTotterMap
 } from '../actions'
 
 const mapStateToProps = (state) => {
@@ -49,9 +51,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(tallyAnswers(quizzes))
       dispatch(animClearAllQuiz())
       dispatch(toggleAnswer(true))
+      dispatch(startTotterMap())
     },
     onReplayClick: (quizCount) => {
       dispatch(initialize(quizCount))
+      dispatch(stopTotterMap())
     }
   }
 }
