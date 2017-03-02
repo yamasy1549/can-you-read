@@ -4,7 +4,7 @@
   bottom: 35vh;
   transform: rotate(90deg);
   background: rgba(var(--white), 0);
-  border:solid 0px ;
+  border:solid 0px;
   height: 6rem;
   padding: 1em;
   font-size: 2rem;
@@ -49,7 +49,7 @@
 .answerLine {
   position: absolute;
   width: 1px;
-  right: 50%; /* TODO: 調整 */
+  right: 49%; /* TODO: 調整 */
   border: 0;
   bottom: calc(8vh + 55px);
   background: var(--purple);
