@@ -23,3 +23,13 @@ a:link, a:visited, a:hover, a:active {
   color: var(--gray);
   text-decoration: none;
 }
+
+::-webkit-input-placeholder {
+  color: var(--light-purple);
+}
+::-moz-placeholder {
+  color: var(--light-purple);
+}
+:-ms-input-placeholder {
+  color: var(--light-purple);
+}
