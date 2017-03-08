@@ -251,3 +251,38 @@
     font-size: 1.6rem;
   }
 }
+
+@media (max-device-width: 550px) {
+  .resultWrapper {
+    padding: 3rem;
+  }
+
+  .resultTitle {
+    writing-mode: vertical-lr;
+  }
+
+  .resultList {
+    margin: 10px auto;
+    font-size: 2rem;
+  }
+
+  .result:before {
+    margin-bottom: 10px;
+  }
+
+  .evaluation,
+  .share {
+    width: 70vw;
+    padding: 20px;
+  }
+
+  .evaluation {
+    animation: none;
+    height: 16vh;
+    padding: 12px;
+  }
+
+  .text {
+    font-size: 1.5rem;
+  }
+}

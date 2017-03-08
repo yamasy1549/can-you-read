@@ -84,3 +84,9 @@
   animation-fill-mode: forwards;
   opacity: 0;
 }
+
+@media (max-device-width: 550px) {
+  .title {
+    font-size: 4.5rem;
+  }
+}

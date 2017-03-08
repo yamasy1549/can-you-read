@@ -28,10 +28,10 @@
 @media (max-device-width: 550px) {
   .title {
     position: absolute;
-    width: 100rem;
+    width: 100vw;
     margin: 0;
     padding: 2.8vh 0;
-    font-size: 4.5rem;
+    font-size: 3rem;
     text-align: center;
     writing-mode: horizontal-tb;
   }

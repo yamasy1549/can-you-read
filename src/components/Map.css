@@ -6,3 +6,12 @@
   width: 100vw;
   z-index: -100;
 }
+
+@media (max-device-width: 550px) {
+  .map {
+    top: 10vh;
+    right: -30vw;
+    width: 160vw;
+    z-index: -100;
+  }
+}

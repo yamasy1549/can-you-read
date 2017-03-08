@@ -139,20 +139,24 @@
 
 @media (max-device-width: 550px) {
   .hintButton {
-    right: 76rem;
-    bottom: 10vh;
-    width: 80px;
-    height: 80px;
-    font-size: 3rem;
+    bottom: 11vh;
+    left: 5rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+
+  .hintButton:after {
+    bottom: 6vh;
   }
 
   .hint {
-    width: 25rem;
-    left: 0;
-    font-size: 4rem;
+    width: 20vw;
+    left: 10vw;
+    font-size: 1.5rem;
   }
 
   .message {
-    padding: 15vh 10.4rem 10vh;
+    padding: 5vh 4.2vh;
   }
 }

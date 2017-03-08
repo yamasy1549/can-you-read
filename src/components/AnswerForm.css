@@ -3,7 +3,7 @@
   right: 14rem;
   bottom: 35vh;
   transform: rotate(90deg);
-  background: rgba(var(--white), 0);
+  background: transparent;
   border:solid 0px;
   height: 6rem;
   padding: 1em;
@@ -70,24 +70,29 @@
     bottom: 8vh;
     width: 55px;
     height: 55px;
-    border-radius: 55px;
+    border-radius: 50%;
     font-size: 1.2rem;
   }
 }
 
 @media (max-device-width: 550px) {
   .input {
-    bottom: 32vh;
-    right: 6rem;
-    font-size: 4rem;
+    transform: rotate(0deg);
+    writing-mode: inherit;
+    padding: 0;
+    display: inline-block;
+    width: 80vw;
+    text-align: center;
+    right: 10vw;
+    bottom: 20vh;
   }
 
   .answerButton {
-    right: 40rem;
-    bottom: 8vh;
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    font-size: 4rem;
+    right: calc(50% - 33px);
+    font-size: 1.5rem;
+  }
+
+  .answerLine {
+    display: none;
   }
 }

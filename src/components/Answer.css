@@ -166,20 +166,21 @@
 
 @media (max-device-width: 550px) {
   .answer {
-    right: 5%;
-    width: 90%;
-    height: 85vh;
-    bottom: 4vh;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 89vh;
+    border-radius: 0;
   }
 
   .judgment {
-    top: calc(20% - 12rem);
-    right: calc(50% - 12rem);
-    font-size: 6.5rem;
+    top: calc(16% - 5rem);
+    right: calc(50% - 5rem);
+    font-size: 2.5rem;
     border: 3px solid var(--white);
-    width: 24rem;
-    height: 24rem;
-    line-height: calc(24rem - 1px);
+    width: 10rem;
+    height: 10rem;
+    line-height: calc(10rem - 3px);
   }
 
   .placeNameWrapper {
@@ -187,6 +188,24 @@
     margin-right: 20%;
     width: 30%;
     height: 42vh;
+  }
+
+  .currentQuiz {
+    font-size: 2rem;
+  }
+
+  .kana {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    padding: 10% 5% 0 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .map {
+    display: none;
   }
 
   .nextButton {
@@ -204,5 +223,16 @@
     text-align: center;
     line-height: 6.8rem;
     z-index: auto;
+  }
+}
+
+@media (max-device-width: 550px) {
+  .nextButton {
+    right: calc(50% - 40px);
+    bottom: 8vh;
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+    line-height: 52px;
   }
 }

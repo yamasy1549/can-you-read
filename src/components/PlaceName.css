@@ -39,18 +39,18 @@
 
 @media (max-device-width: 550px) {
   .quiz {
-    right: 49.5rem;
-    bottom: 26vh;
+    right: calc(50vw - 25px);
+    bottom: 30vh;
   }
 
   .prefecture {
     margin-bottom: 2vh;
     letter-spacing: 0.5rem;
-    font-size: 4rem;
+    font-size: 2rem;
   }
 
   .kanji {
     letter-spacing: 1rem;
-    font-size: 10rem;
+    font-size: 5rem;
   }
 }

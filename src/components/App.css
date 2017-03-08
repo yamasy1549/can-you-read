@@ -36,6 +36,7 @@
 
 @media (max-device-width: 550px) {
   .canyouread {
-    width: 100rem;
+    width: 100vw;
+    height: 100vh;
   }
 }
