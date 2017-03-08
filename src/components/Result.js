@@ -39,7 +39,7 @@ const Result = ({ quizCount, pass, correct, incorrect, onReplayClick }) => (
     </div>
     <div className={styles.share}>
       <button className={styles.button}>
-        <a className={styles.buttonTextTwitter} href={`\/\/twitter.com/intent/tweet?text=難読地名くいずで${quizCount}問中${correct}問正解しました`}>
+        <a className={styles.buttonTextTwitter} href={`\/\/twitter.com/intent/tweet?text=http:\/\/yamasy.info\/can-you-read\ 難読地名くいずで${quizCount}問中${correct}問正解しました（評価：${resultsToJapanese(correct, quizCount)}）`}>
           <img className={styles.icon} src={twitterIcon} />
           Twitterで共有
         </a>
