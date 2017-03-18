@@ -9,13 +9,12 @@ import App                               from './components/App'
 import quizzes                           from './reducers'
 import { initialize }                    from './actions'
 
-const logger = createLogger()
 const store = createStore(
   quizzes,
-  applyMiddleware(thunk, promise, logger)
+  applyMiddleware(thunk, promise)
 )
 
-store.dispatch(initialize(10))
+store.dispatch(initialize(3))
 
 render(
   <Provider store={store}>
