@@ -14,7 +14,7 @@ const store = createStore(
   applyMiddleware(thunk, promise)
 )
 
-store.dispatch(initialize(3))
+store.dispatch(initialize(5))
 
 render(
   <Provider store={store}>
