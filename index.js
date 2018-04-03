@@ -30001,7 +30001,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_redux__["a" /* createStore */])(__WEBPACK_IMPORTED_MODULE_8__reducers__["a" /* default */], __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_redux__["b" /* applyMiddleware */])(__WEBPACK_IMPORTED_MODULE_1_redux_thunk___default.a, __WEBPACK_IMPORTED_MODULE_2_redux_promise___default.a));
 
-store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__actions__["a" /* initialize */])(3));
+store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__actions__["a" /* initialize */])(5));
 
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   __WEBPACK_IMPORTED_MODULE_5_react_redux__["a" /* Provider */],
